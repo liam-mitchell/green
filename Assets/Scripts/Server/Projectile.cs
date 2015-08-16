@@ -16,7 +16,6 @@ public abstract class Projectile : NetworkBehaviour {
 
 	[ServerCallback]
 	void Start() {
-		Debug.Log (String.Format("Projectile start: target {0}", target));
 		startPosition = transform.position;
 	}
 
@@ -63,11 +62,11 @@ public abstract class Projectile : NetworkBehaviour {
 		Vector3 direction = old - transform.position;
 		bool dead = false;
 
-		RaycastHit[] hits = Physics.RaycastAll(transform.position, direction, direction.magnitude);
+		RaycastHit[] hits = Physics.RaycastAll(transform.position, direction, direction.magnitude, ~(1 << (int)Layers.TARGETABLE) & ~(1 << (int)Layers.IGNORE_RAYCAST));
 		foreach (var hit in hits) {
 			Debug.Log(String.Format ("RaycastHit: object {0}", hit.collider.gameObject));
 			if (ignoredCollisions != null && !ignoredCollisions.Contains (hit.collider.gameObject)) {
-				hit.collider.gameObject.GetComponent<PlayerHealth>().CollisionProjectile(this);
+				hit.collider.transform.root.gameObject.GetComponentInChildren<PlayerHealth>().CollisionProjectile(this);
 				Debug.Log ("Collided projectile!");
 				dead = true;
 			}

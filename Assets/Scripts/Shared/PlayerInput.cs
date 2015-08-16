@@ -11,6 +11,7 @@ public class PlayerInput : NetworkBehaviour {
 		public float verticalLook;
 
 		public bool fire;
+		public bool locking;
 	}
 
 	public InputState state;
@@ -33,6 +34,7 @@ public class PlayerInput : NetworkBehaviour {
 		state.verticalLook = Input.GetAxis ("VerticalLook");
 		
 		state.fire = Input.GetButton ("Fire1");
+		state.locking = Input.GetButton ("Locking");
 	}
 
 	public void LogState(String message) {

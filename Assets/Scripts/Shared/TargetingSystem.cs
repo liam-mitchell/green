@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
 using System.Collections;
+using System;
 
 public class TargetingSystem : NetworkBehaviour {
-	private enum State {UNLOCKED, LOCKING, LOCKED, UNLOCKING}
+	private enum State {UNLOCKED, LOCKING, LOCKED}
 	public TargetingUI ui;
+	public PlayerInput input;
 	public float maxRange;
 	public float lockDelay;
 	public float unlockDelay;
@@ -16,8 +18,8 @@ public class TargetingSystem : NetworkBehaviour {
 	private State state;
 
 	public GameObject Target() {
-		if (state == State.LOCKED || state == State.UNLOCKING) {
-			return target;
+		if (state == State.LOCKED && target) {
+			return target.transform.root.gameObject;
 		}
 		else {
 			return null;
@@ -32,120 +34,99 @@ public class TargetingSystem : NetworkBehaviour {
 	void Update() {
 		switch(state) {
 		case State.LOCKED:
-			state = UpdateLocked();
+			UpdateLocked();
 			break;
 		case State.UNLOCKED:
-			state = UpdateUnlocked();
-			break;
-		case State.UNLOCKING:
-			state = UpdateUnlocking ();
+			UpdateUnlocked();
 			break;
 		case State.LOCKING:
-			state = UpdateLocking();
+			UpdateLocking();
 			break;
 		default:
 			break;
 		}
-	}
-
-	private State UpdateUnlocked() {
-		GameObject t = GetTarget();
-		if (t) {
-			return Locking(t);
-		}
-		else {
-			return State.UNLOCKED;
-		}
-	}
-
-	private State UpdateUnlocking() {
-		GameObject t = GetTarget();
-		if (t && t == target) {
-			return Lock(t);
-		}
-		else {
-			currentUnlockDelay += Time.deltaTime;
-			if (currentUnlockDelay > unlockDelay) {
-				return Unlock();
-			}
-			else {
-				return State.UNLOCKING;
-			}
-		}
-	}
-
-	private State UpdateLocking() {
-		GameObject t = GetTarget();
-		if (t == target) {
-			currentLockDelay += Time.deltaTime;
-			if (currentLockDelay > lockDelay) {
-				return Lock(t);
-			}
-			else {
-				return State.LOCKING;
-			}
-		}
-		else {
-			return Unlock();
-		}
-	}
-
-	private State UpdateLocked() {
-		GameObject t = GetTarget();
-		if (!t || t != target) {
-			return Unlocking();
-		}
-		else {
-			return State.LOCKED;
-		}
-	}
-
-	private State Locking(GameObject t) {
-		target = t;
-		currentLockDelay = 0.0f;
-		ui.Locking ();
-		return State.LOCKING;
-	}
-
-	private State Lock(GameObject t) {
-		target = t;
-		ui.Lock ();
-		return State.LOCKED;
-	}
-
-	private State Unlock() {
-		target = null;
-		ui.Unlock ();
-		return State.UNLOCKED;
-	}
-
-	private State Unlocking() {
-		currentUnlockDelay = 0.0f;
-		return State.UNLOCKING;
 	}
 
 	[ClientCallback]
-	private void UpdateUI() {
-		switch(state) {
-		case State.LOCKED:
-			ui.Lock();
-			break;
-		case State.LOCKING:
-			ui.Locking();
-			break;
-		case State.UNLOCKED:
-			ui.Unlock();
-			break;
-		case State.UNLOCKING:
-		default:
-			break;
+	private void UpdateUnlocked() {
+		if (input.state.locking) {
+			GameObject t = GetTarget();
+			if (t) {
+				Locking(t);
+			}
 		}
+	}
+
+	[ServerCallback]
+	private void UpdateLocking() {
+		currentLockDelay += Time.deltaTime;
+		if (currentLockDelay > lockDelay) {
+			Lock();
+		}
+	}
+
+	[ClientCallback]
+	private void UpdateLocked() {
+		// Potentially range check, unlock if necessary, etc.
+		if (input.state.locking) {
+			Debug.Log ("Locking!");
+			GameObject t = GetTarget();
+			if (!t) {
+				Unlock();
+			}
+			else if (t != target) {
+				Locking(t);
+			}
+		}
+	}
+
+	[ClientCallback]
+	private void Locking(GameObject t) {
+		CmdLocking ();
+		ui.Locking (t);
+		target = t;
+		Debug.Log (String.Format("Locking: {0}", t));
+		state = State.LOCKING;
+	}
+	
+	[Command]
+	private void CmdLocking() {
+		target = GetTarget();
+		if (state == State.UNLOCKED) {
+			currentLockDelay = 0.0f;
+			state = State.LOCKING;
+		}
+	}
+
+	[ServerCallback]
+	private void Lock() {
+		RpcLock();
+		state = State.LOCKED;
+	}
+
+	[ClientRpc]
+	private void RpcLock() {
+		state = State.LOCKED;
+		ui.Lock (target);
+	}
+
+	[ClientCallback]
+	private void Unlock() {
+		ui.Unlock ();
+		CmdUnlock();
+		state = State.UNLOCKED;
+	}
+
+	[Command]
+	private void CmdUnlock() {
+		target = null;
+		state = State.UNLOCKED;
 	}
 
 	private GameObject GetTarget() {
 		RaycastHit hit;
 		if (Physics.Raycast (transform.position, transform.right, out hit, maxRange, (1 << (int)Layers.TARGETABLE))) {
-			return hit.collider.gameObject;
+			return hit.collider.transform.root.gameObject;
 		}
 
 		return null;
