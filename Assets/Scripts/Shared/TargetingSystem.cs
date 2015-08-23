@@ -5,8 +5,10 @@ using System;
 
 public class TargetingSystem : NetworkBehaviour {
 	private enum State {UNLOCKED, LOCKING, LOCKED}
+
 	public TargetingUI ui;
 	public PlayerInput input;
+
 	public float maxRange;
 	public float lockDelay;
 	public float unlockDelay;
@@ -82,7 +84,8 @@ public class TargetingSystem : NetworkBehaviour {
 
 	[ClientCallback]
 	private void Locking(GameObject t) {
-		CmdLocking ();
+		CmdLocking (t.transform.root.gameObject.GetComponent<NetworkIdentity>().netId);
+		Debug.Log (String.Format ("Locking onto {0}", t.transform.root.gameObject.GetComponent<NetworkIdentity>().netId));
 		ui.Locking (t);
 		target = t;
 		Debug.Log (String.Format("Locking: {0}", t));
@@ -90,8 +93,10 @@ public class TargetingSystem : NetworkBehaviour {
 	}
 	
 	[Command]
-	private void CmdLocking() {
-		target = GetTarget();
+	private void CmdLocking(NetworkInstanceId netId) {
+		Debug.Log (String.Format ("Locking onto {0}", netId));
+		target = NetworkServer.FindLocalObject(netId);
+		Debug.Log (target);
 		if (state == State.UNLOCKED) {
 			currentLockDelay = 0.0f;
 			state = State.LOCKING;
@@ -124,11 +129,6 @@ public class TargetingSystem : NetworkBehaviour {
 	}
 
 	private GameObject GetTarget() {
-		RaycastHit hit;
-		if (Physics.Raycast (transform.position, transform.right, out hit, maxRange, (1 << (int)Layers.TARGETABLE))) {
-			return hit.collider.transform.root.gameObject;
-		}
-
-		return null;
+		return ui.GetTarget ();
 	}
 }

@@ -24,8 +24,6 @@ public class TargetingUI : MonoBehaviour {
 			else {
 				image = GameObject.Instantiate (i);
 				image.rectTransform.SetParent (canvas.transform);
-				image.rectTransform.anchorMax = new Vector2(0, 0);
-				image.rectTransform.anchorMin = new Vector2(0, 0);
 			}
 
 			UpdateImage();
@@ -42,7 +40,7 @@ public class TargetingUI : MonoBehaviour {
 			}
 
 			Vector3 screen = Camera.main.WorldToScreenPoint(player.transform.position);
-			image.rectTransform.anchoredPosition = new Vector2(screen.x, screen.y);
+			image.rectTransform.anchoredPosition = new Vector2(screen.x - image.sprite.rect.width / 2, screen.y - image.sprite.rect.height / 2);
 		}
 	}
 
@@ -51,9 +49,11 @@ public class TargetingUI : MonoBehaviour {
 	public Image target;
 	public Image targetLocking;
 	public Image targetLocked;
+	public Image reticle;
 
 	private GameObject canvas;
 	private Camera cam;
+	private Image activeReticle;
 
 	private GameObject lockTarget;
 	private bool locked;
@@ -68,7 +68,21 @@ public class TargetingUI : MonoBehaviour {
 		canvas.GetComponent<Canvas>().worldCamera = cam;
 		visible = new List<VisiblePlayer>();
 
+		CreateReticle();
+
 		Unlock();
+	}
+
+	private void CreateReticle() {
+		var pos = Camera.main.WorldToScreenPoint(transform.root.gameObject.transform.position + transform.root.gameObject.transform.right * 100);
+		activeReticle = GameObject.Instantiate (reticle);
+		activeReticle.rectTransform.SetParent (canvas.GetComponent<Canvas>().transform);
+		//activeReticle.rectTransform.anchoredPosition = new Vector2(pos.x - reticle.sprite.rect.width / 2, pos.y - reticle.sprite.rect.height / 2);
+		activeReticle.rectTransform.anchoredPosition3D = new Vector3(pos.x - reticle.sprite.rect.width / 2, pos.y - reticle.sprite.rect.height / 2, pos.z);
+
+		// Why does this one get scaled to 0, 0, 0? Unityyyy
+		activeReticle.rectTransform.localScale = new Vector3(1, 1, 1);
+		Debug.Log (String.Format ("Active reticle set to {0}, {1}", pos.x, pos.y));
 	}
 
 	void Update() {
@@ -76,21 +90,25 @@ public class TargetingUI : MonoBehaviour {
 	}
 
 	private VisiblePlayer FindVisible(GameObject t) {
+		if (t == null) {
+			return null;
+		}
+
 		return visible.Find (v => v.player.transform.root.gameObject == t.transform.root.gameObject);
 	}
 
-	void TargetVisible(GameObject t) {
-		var vis = FindVisible(t);
-		if (vis == null) {
+	private void TargetVisible(GameObject t) {
+		var v = FindVisible(t);
+		if (v == null) {
 			visible.Add (new VisiblePlayer(t, target, canvas.GetComponent<Canvas>()));
 		}
 	}
 
-	void TargetBehind(GameObject t) {
+	private void TargetBehind(GameObject t) {
 		visible.Remove (FindVisible(t));
 	}
 
-	void TargetOutOfRange(GameObject t) {
+	private void TargetOutOfRange(GameObject t) {
 		visible.Remove (FindVisible(t));
 	}
 
@@ -113,6 +131,10 @@ public class TargetingUI : MonoBehaviour {
 		foreach (var v in visible) {
 			v.UpdateImage();
 		}
+
+		visible.Sort (delegate(VisiblePlayer v, VisiblePlayer o) {
+			return v.image.rectTransform.anchoredPosition3D.z.CompareTo(o.image.rectTransform.anchoredPosition3D.z);
+		});
 	}
 
 	public void Lock(GameObject t) {
@@ -129,6 +151,21 @@ public class TargetingUI : MonoBehaviour {
 		foreach (var v in visible) {
 			v.SetImage(target);
 		}
+	}
+
+	public GameObject GetTarget() {
+		if (!enabled) return null;
+
+		var targetDistance = activeReticle.sprite.rect.width / 2;
+		var target = visible.Find (v => (activeReticle.rectTransform.anchoredPosition - v.image.rectTransform.anchoredPosition).magnitude < targetDistance);
+		if (target != null) {
+			Debug.Log (target.player);
+			return target.player;
+		}
+
+		Debug.Log ("No target!");
+		Debug.Log (String.Format ("tried to find image within {0} pixels of ({1}, {2})", targetDistance, activeReticle.rectTransform.anchoredPosition.x, activeReticle.rectTransform.anchoredPosition.y));
+		return null;
 	}
 
 	private void SetImage(GameObject t, Image i) {

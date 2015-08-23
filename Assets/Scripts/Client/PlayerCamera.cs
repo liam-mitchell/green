@@ -17,8 +17,6 @@ public class PlayerCamera : MonoBehaviour {
 			Debug.Log("Local player found!");
 			cam = gameObject.AddComponent<Camera>();
 			cam.enabled = true;
-			//gameObject.GetComponent<Renderer>().enabled = false;
-			// GetComponent<Renderer>().enabled = false;
 		}
 	}
 	

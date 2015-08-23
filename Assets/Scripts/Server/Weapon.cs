@@ -19,7 +19,7 @@ public class Weapon : NetworkBehaviour {
 	[ServerCallback]
 	void Update() {
 		if (input.state.fire && currentCooldown <= 0.0f) {
-			var projectile = projectileSpawner.Spawn (transform.position + transform.right * 5,
+			var projectile = projectileSpawner.Spawn (transform.position + transform.right * 0.5f,
 			                                          Quaternion.LookRotation(transform.right, transform.up));
 			var component = projectile.GetComponent<Projectile>();
 			component.Lock(targetingSystem.Target());
