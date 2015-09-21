@@ -19,12 +19,6 @@ public class InterpolatedTransform : NetworkBehaviour {
 	}
 
 	private List<SyncTransform> transforms;
-	private float lastSync;
-
-	// Use this for initialization
-	void Start () {
-		lastSync = 0;
-	}
 
 	// Update is called once per frame
 	[ClientCallback]

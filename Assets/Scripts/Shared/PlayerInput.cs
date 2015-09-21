@@ -12,6 +12,8 @@ public class PlayerInput : NetworkBehaviour {
 
 		public bool fire;
 		public bool locking;
+
+		public bool craftingMode;
 	}
 
 	public InputState state;
@@ -35,6 +37,7 @@ public class PlayerInput : NetworkBehaviour {
 		
 		state.fire = Input.GetButton ("Fire1");
 		state.locking = Input.GetButton ("Locking");
+		state.craftingMode = Input.GetButton ("CraftingMode");
 	}
 
 	public void LogState(String message) {

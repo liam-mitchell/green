@@ -2,9 +2,9 @@ Mono path[0] = 'C:/Users/Liam/workspace/green/green/Builds/server_Data/Managed'
 Mono path[1] = 'C:/Users/Liam/workspace/green/green/Builds/server_Data/Mono'
 Mono config path = 'C:/Users/Liam/workspace/green/green/Builds/server_Data/Mono/etc'
 PlayerConnection initialized from C:/Users/Liam/workspace/green/green/Builds/server_Data (debug = 0)
-PlayerConnection initialized network socket : 0.0.0.0 55357
-Multi-casting "[IP] 192.168.1.67 [Port] 55357 [Flags] 2 [Guid] 298852277 [EditorId] 2260675390 [Version] 1048832 [Id] WindowsPlayer(Zeus) [Debug] 0" to [225.0.0.222:54997]...
-PlayerConnection already initialized - listening to [192.168.1.67:55357]
+PlayerConnection initialized network socket : 0.0.0.0 55007
+Multi-casting "[IP] 192.168.1.67 [Port] 55007 [Flags] 2 [Guid] 124636548 [EditorId] 1322224484 [Version] 1048832 [Id] WindowsPlayer(Zeus) [Debug] 0" to [225.0.0.222:54997]...
+PlayerConnection already initialized - listening to [192.168.1.67:55007]
 Initialize engine version: 5.1.1f1 (2046fc06d4d8)
 GfxDevice: creating device client; threaded=1
 Direct3D:
@@ -23,15 +23,59 @@ Platform assembly: C:\Users\Liam\workspace\green\green\Builds\server_Data\Manage
 Loading C:\Users\Liam\workspace\green\green\Builds\server_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Liam\workspace\green\green\Builds\server_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
 Loading C:\Users\Liam\workspace\green\green\Builds\server_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.053 seconds
+- Completed reload, in  0.334 seconds
 desktop: 1920x1080 60Hz; virtual: 3840x1080 at -1920,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
 Platform assembly: C:\Users\Liam\workspace\green\green\Builds\server_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Liam\workspace\green\green\Builds\server_Data\Managed\System.dll (this message is harmless)
+Server started
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+ShipServer:OnStartServer() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\SceneServers\ShipServer.cs:53)
+UnityEngine.Networking.NetworkManager:StartServer(MatchInfo, ConnectionConfig, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkManager.cs:215)
+UnityEngine.Networking.NetworkManager:StartServer(MatchInfo) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkManager.cs:210)
+UnityEngine.Networking.NetworkManager:StartServer() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkManager.cs:205)
+SceneInitialization:StartServer() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Shared\SceneInitialization.cs:16)
+SceneInitialization:Start() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Shared\SceneInitialization.cs:11)
+ 
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/SceneServers/ShipServer.cs Line: 53)
+
+Started server!
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+SceneInitialization:StartServer() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Shared\SceneInitialization.cs:20)
+SceneInitialization:Start() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Shared\SceneInitialization.cs:11)
+ 
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Shared/SceneInitialization.cs Line: 20)
+
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: ae4c -> priority: 1 
+  Thread -> id: 8f20 -> priority: 1 
+Server added player
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+ShipServer:OnServerConnect(NetworkConnection) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\SceneServers\ShipServer.cs:64)
+UnityEngine.Networking.NetworkManager:OnServerConnectInternal(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkManager.cs:574)
+UnityEngine.Networking.NetworkMessageHandlers:InvokeHandler(Int16, NetworkConnection, NetworkReader, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkMessageHandlers.cs:73)
+UnityEngine.Networking.NetworkMessageHandlers:InvokeHandlerNoData(Int16, NetworkConnection) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkMessageHandlers.cs:60)
+UnityEngine.Networking.NetworkServer:InternalUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:624)
+UnityEngine.Networking.NetworkServer:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:514)
+UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:706)
+ 
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/SceneServers/ShipServer.cs Line: 64)
+
+OnSendPlayer: liam
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+ShipServer:OnSendPlayer(NetworkMessage) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\SceneServers\ShipServer.cs:77)
+UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
+UnityEngine.Networking.NetworkServer:InternalUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:652)
+UnityEngine.Networking.NetworkServer:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:514)
+UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:706)
+ 
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/SceneServers/ShipServer.cs Line: 77)
+
 Started player on server!
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
@@ -39,467 +83,449 @@ LocalPlayer:Start() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Clien
  
 (Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Client/LocalPlayer.cs Line: 20)
 
-Projectile locked: 
+Checking distance vs CraftingLocation (UnityEngine.GameObject): 161.7694
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-Projectile:Lock(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:84)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:25)
+CraftingSystem:Distance(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:57)
+CraftingSystem:<FindCraftingLocation>m__0(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:47)
+System.Collections.Generic.List`1:RemoveAll(Predicate`1) (at /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Collections.Generic/List.cs:514)
+CraftingSystem:FindCraftingLocation() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:47)
+CraftingSystem:CmdEnter(String) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:33)
+CraftingSystem:InvokeCmdCmdEnter(NetworkBehaviour, NetworkReader)
+UnityEngine.Networking.NetworkBehaviour:InvokeCommandDelegate(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:299)
+UnityEngine.Networking.NetworkBehaviour:InvokeCommand(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:77)
+UnityEngine.Networking.NetworkIdentity:HandleCommand(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:404)
+UnityEngine.Networking.NetworkServer:OnCommandMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:1218)
+UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
+UnityEngine.Networking.NetworkServer:InternalUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:652)
+UnityEngine.Networking.NetworkServer:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:514)
+UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:706)
  
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 84)
+(Filename: /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Collections.Generic/List.cs Line: 514)
 
-Ignoring object!
+Entering crafting mode
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-Projectile:Ignore(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:94)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:26)
+CraftingSystem:CmdEnter(String) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:41)
+CraftingSystem:InvokeCmdCmdEnter(NetworkBehaviour, NetworkReader)
+UnityEngine.Networking.NetworkBehaviour:InvokeCommandDelegate(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:299)
+UnityEngine.Networking.NetworkBehaviour:InvokeCommand(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:77)
+UnityEngine.Networking.NetworkIdentity:HandleCommand(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:404)
+UnityEngine.Networking.NetworkServer:OnCommandMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:1218)
+UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
+UnityEngine.Networking.NetworkServer:InternalUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:652)
+UnityEngine.Networking.NetworkServer:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:514)
+UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:706)
  
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 94)
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Client/CraftingSystem.cs Line: 41)
 
-Ignored object!
+Player entered crafting location!
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-Projectile:Ignore(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:96)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:26)
+CraftingLocation:Enter(Player) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\CraftingLocation.cs:23)
+CraftingSystem:CmdEnter(String) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:42)
+CraftingSystem:InvokeCmdCmdEnter(NetworkBehaviour, NetworkReader)
+UnityEngine.Networking.NetworkBehaviour:InvokeCommandDelegate(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:299)
+UnityEngine.Networking.NetworkBehaviour:InvokeCommand(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:77)
+UnityEngine.Networking.NetworkIdentity:HandleCommand(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:404)
+UnityEngine.Networking.NetworkServer:OnCommandMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:1218)
+UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
+UnityEngine.Networking.NetworkServer:InternalUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:652)
+UnityEngine.Networking.NetworkServer:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:514)
+UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:706)
  
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 96)
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/CraftingLocation.cs Line: 23)
 
-Projectile locked: 
+Checking distance vs CraftingLocation (UnityEngine.GameObject): 161.7694
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-Projectile:Lock(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:84)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:25)
+CraftingSystem:Distance(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:57)
+CraftingSystem:<FindCraftingLocation>m__0(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:47)
+System.Collections.Generic.List`1:RemoveAll(Predicate`1) (at /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Collections.Generic/List.cs:514)
+CraftingSystem:FindCraftingLocation() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:47)
+CraftingSystem:CmdEnter(String) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:33)
+CraftingSystem:InvokeCmdCmdEnter(NetworkBehaviour, NetworkReader)
+UnityEngine.Networking.NetworkBehaviour:InvokeCommandDelegate(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:299)
+UnityEngine.Networking.NetworkBehaviour:InvokeCommand(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:77)
+UnityEngine.Networking.NetworkIdentity:HandleCommand(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:404)
+UnityEngine.Networking.NetworkServer:OnCommandMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:1218)
+UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
+UnityEngine.Networking.NetworkServer:InternalUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:652)
+UnityEngine.Networking.NetworkServer:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:514)
+UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:706)
  
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 84)
+(Filename: /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Collections.Generic/List.cs Line: 514)
 
-Ignoring object!
+Entering crafting mode
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-Projectile:Ignore(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:94)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:26)
+CraftingSystem:CmdEnter(String) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:41)
+CraftingSystem:InvokeCmdCmdEnter(NetworkBehaviour, NetworkReader)
+UnityEngine.Networking.NetworkBehaviour:InvokeCommandDelegate(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:299)
+UnityEngine.Networking.NetworkBehaviour:InvokeCommand(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:77)
+UnityEngine.Networking.NetworkIdentity:HandleCommand(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:404)
+UnityEngine.Networking.NetworkServer:OnCommandMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:1218)
+UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
+UnityEngine.Networking.NetworkServer:InternalUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:652)
+UnityEngine.Networking.NetworkServer:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:514)
+UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:706)
  
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 94)
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Client/CraftingSystem.cs Line: 41)
 
-Ignored object!
+Player entered crafting location!
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-Projectile:Ignore(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:96)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:26)
+CraftingLocation:Enter(Player) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\CraftingLocation.cs:23)
+CraftingSystem:CmdEnter(String) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:42)
+CraftingSystem:InvokeCmdCmdEnter(NetworkBehaviour, NetworkReader)
+UnityEngine.Networking.NetworkBehaviour:InvokeCommandDelegate(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:299)
+UnityEngine.Networking.NetworkBehaviour:InvokeCommand(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:77)
+UnityEngine.Networking.NetworkIdentity:HandleCommand(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:404)
+UnityEngine.Networking.NetworkServer:OnCommandMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:1218)
+UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
+UnityEngine.Networking.NetworkServer:InternalUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:652)
+UnityEngine.Networking.NetworkServer:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:514)
+UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:706)
  
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 96)
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/CraftingLocation.cs Line: 23)
 
-Projectile locked: 
+Checking distance vs CraftingLocation (UnityEngine.GameObject): 161.7694
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-Projectile:Lock(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:84)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:25)
+CraftingSystem:Distance(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:57)
+CraftingSystem:<FindCraftingLocation>m__0(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:47)
+System.Collections.Generic.List`1:RemoveAll(Predicate`1) (at /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Collections.Generic/List.cs:514)
+CraftingSystem:FindCraftingLocation() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:47)
+CraftingSystem:CmdEnter(String) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:33)
+CraftingSystem:InvokeCmdCmdEnter(NetworkBehaviour, NetworkReader)
+UnityEngine.Networking.NetworkBehaviour:InvokeCommandDelegate(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:299)
+UnityEngine.Networking.NetworkBehaviour:InvokeCommand(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:77)
+UnityEngine.Networking.NetworkIdentity:HandleCommand(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:404)
+UnityEngine.Networking.NetworkServer:OnCommandMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:1218)
+UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
+UnityEngine.Networking.NetworkServer:InternalUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:652)
+UnityEngine.Networking.NetworkServer:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:514)
+UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:706)
  
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 84)
+(Filename: /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Collections.Generic/List.cs Line: 514)
 
-Ignoring object!
+Entering crafting mode
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-Projectile:Ignore(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:94)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:26)
+CraftingSystem:CmdEnter(String) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:41)
+CraftingSystem:InvokeCmdCmdEnter(NetworkBehaviour, NetworkReader)
+UnityEngine.Networking.NetworkBehaviour:InvokeCommandDelegate(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:299)
+UnityEngine.Networking.NetworkBehaviour:InvokeCommand(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:77)
+UnityEngine.Networking.NetworkIdentity:HandleCommand(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:404)
+UnityEngine.Networking.NetworkServer:OnCommandMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:1218)
+UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
+UnityEngine.Networking.NetworkServer:InternalUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:652)
+UnityEngine.Networking.NetworkServer:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:514)
+UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:706)
  
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 94)
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Client/CraftingSystem.cs Line: 41)
 
-Ignored object!
+Player entered crafting location!
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-Projectile:Ignore(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:96)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:26)
+CraftingLocation:Enter(Player) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\CraftingLocation.cs:23)
+CraftingSystem:CmdEnter(String) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:42)
+CraftingSystem:InvokeCmdCmdEnter(NetworkBehaviour, NetworkReader)
+UnityEngine.Networking.NetworkBehaviour:InvokeCommandDelegate(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:299)
+UnityEngine.Networking.NetworkBehaviour:InvokeCommand(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:77)
+UnityEngine.Networking.NetworkIdentity:HandleCommand(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:404)
+UnityEngine.Networking.NetworkServer:OnCommandMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:1218)
+UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
+UnityEngine.Networking.NetworkServer:InternalUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:652)
+UnityEngine.Networking.NetworkServer:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:514)
+UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:706)
  
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 96)
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/CraftingLocation.cs Line: 23)
 
-Projectile locked: 
+Checking distance vs CraftingLocation (UnityEngine.GameObject): 161.7694
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-Projectile:Lock(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:84)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:25)
+CraftingSystem:Distance(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:57)
+CraftingSystem:<FindCraftingLocation>m__0(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:47)
+System.Collections.Generic.List`1:RemoveAll(Predicate`1) (at /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Collections.Generic/List.cs:514)
+CraftingSystem:FindCraftingLocation() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:47)
+CraftingSystem:CmdEnter(String) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:33)
+CraftingSystem:InvokeCmdCmdEnter(NetworkBehaviour, NetworkReader)
+UnityEngine.Networking.NetworkBehaviour:InvokeCommandDelegate(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:299)
+UnityEngine.Networking.NetworkBehaviour:InvokeCommand(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:77)
+UnityEngine.Networking.NetworkIdentity:HandleCommand(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:404)
+UnityEngine.Networking.NetworkServer:OnCommandMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:1218)
+UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
+UnityEngine.Networking.NetworkServer:InternalUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:652)
+UnityEngine.Networking.NetworkServer:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:514)
+UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:706)
  
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 84)
+(Filename: /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Collections.Generic/List.cs Line: 514)
 
-Ignoring object!
+Entering crafting mode
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-Projectile:Ignore(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:94)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:26)
+CraftingSystem:CmdEnter(String) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:41)
+CraftingSystem:InvokeCmdCmdEnter(NetworkBehaviour, NetworkReader)
+UnityEngine.Networking.NetworkBehaviour:InvokeCommandDelegate(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:299)
+UnityEngine.Networking.NetworkBehaviour:InvokeCommand(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:77)
+UnityEngine.Networking.NetworkIdentity:HandleCommand(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:404)
+UnityEngine.Networking.NetworkServer:OnCommandMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:1218)
+UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
+UnityEngine.Networking.NetworkServer:InternalUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:652)
+UnityEngine.Networking.NetworkServer:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:514)
+UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:706)
  
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 94)
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Client/CraftingSystem.cs Line: 41)
 
-Ignored object!
+Player entered crafting location!
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-Projectile:Ignore(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:96)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:26)
+CraftingLocation:Enter(Player) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\CraftingLocation.cs:23)
+CraftingSystem:CmdEnter(String) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:42)
+CraftingSystem:InvokeCmdCmdEnter(NetworkBehaviour, NetworkReader)
+UnityEngine.Networking.NetworkBehaviour:InvokeCommandDelegate(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:299)
+UnityEngine.Networking.NetworkBehaviour:InvokeCommand(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:77)
+UnityEngine.Networking.NetworkIdentity:HandleCommand(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:404)
+UnityEngine.Networking.NetworkServer:OnCommandMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:1218)
+UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
+UnityEngine.Networking.NetworkServer:InternalUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:652)
+UnityEngine.Networking.NetworkServer:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:514)
+UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:706)
  
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 96)
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/CraftingLocation.cs Line: 23)
 
-Projectile locked: 
+Checking distance vs CraftingLocation (UnityEngine.GameObject): 161.7694
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-Projectile:Lock(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:84)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:25)
+CraftingSystem:Distance(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:57)
+CraftingSystem:<FindCraftingLocation>m__0(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:47)
+System.Collections.Generic.List`1:RemoveAll(Predicate`1) (at /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Collections.Generic/List.cs:514)
+CraftingSystem:FindCraftingLocation() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:47)
+CraftingSystem:CmdEnter(String) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:33)
+CraftingSystem:InvokeCmdCmdEnter(NetworkBehaviour, NetworkReader)
+UnityEngine.Networking.NetworkBehaviour:InvokeCommandDelegate(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:299)
+UnityEngine.Networking.NetworkBehaviour:InvokeCommand(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:77)
+UnityEngine.Networking.NetworkIdentity:HandleCommand(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:404)
+UnityEngine.Networking.NetworkServer:OnCommandMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:1218)
+UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
+UnityEngine.Networking.NetworkServer:InternalUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:652)
+UnityEngine.Networking.NetworkServer:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:514)
+UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:706)
  
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 84)
+(Filename: /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Collections.Generic/List.cs Line: 514)
 
-Ignoring object!
+Entering crafting mode
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-Projectile:Ignore(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:94)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:26)
+CraftingSystem:CmdEnter(String) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:41)
+CraftingSystem:InvokeCmdCmdEnter(NetworkBehaviour, NetworkReader)
+UnityEngine.Networking.NetworkBehaviour:InvokeCommandDelegate(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:299)
+UnityEngine.Networking.NetworkBehaviour:InvokeCommand(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:77)
+UnityEngine.Networking.NetworkIdentity:HandleCommand(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:404)
+UnityEngine.Networking.NetworkServer:OnCommandMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:1218)
+UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
+UnityEngine.Networking.NetworkServer:InternalUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:652)
+UnityEngine.Networking.NetworkServer:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:514)
+UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:706)
  
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 94)
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Client/CraftingSystem.cs Line: 41)
 
-Ignored object!
+Player entered crafting location!
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-Projectile:Ignore(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:96)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:26)
+CraftingLocation:Enter(Player) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\CraftingLocation.cs:23)
+CraftingSystem:CmdEnter(String) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:42)
+CraftingSystem:InvokeCmdCmdEnter(NetworkBehaviour, NetworkReader)
+UnityEngine.Networking.NetworkBehaviour:InvokeCommandDelegate(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:299)
+UnityEngine.Networking.NetworkBehaviour:InvokeCommand(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:77)
+UnityEngine.Networking.NetworkIdentity:HandleCommand(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:404)
+UnityEngine.Networking.NetworkServer:OnCommandMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:1218)
+UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
+UnityEngine.Networking.NetworkServer:InternalUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:652)
+UnityEngine.Networking.NetworkServer:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:514)
+UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:706)
  
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 96)
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/CraftingLocation.cs Line: 23)
 
-Projectile dying!
+Player saved: liam
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-Projectile:Die() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:77)
-Projectile:FixedUpdate() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:29)
+CraftingLocation:OnPlayerSaved(NetworkMessage) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\CraftingLocation.cs:46)
+UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
+UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
+UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
+UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
  
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 77)
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/CraftingLocation.cs Line: 46)
 
-Projectile locked: 
+Player saved: liam
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-Projectile:Lock(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:84)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:25)
+CraftingLocation:OnPlayerSaved(NetworkMessage) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\CraftingLocation.cs:46)
+UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
+UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
+UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
+UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
  
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 84)
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/CraftingLocation.cs Line: 46)
 
-Ignoring object!
+Empty player list given to NetworkServer.Destroy(), nothing to do.
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Projectile:Ignore(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:94)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:26)
+UnityEngine.Debug:LogWarning(Object)
+UnityEngine.Networking.NetworkServer:DestroyPlayersForConnection(NetworkConnection) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:1335)
+CraftingLocation:OnPlayerSaved(NetworkMessage) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\CraftingLocation.cs:48)
+UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
+UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
+UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
+UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
  
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 94)
+(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkServer.cs Line: 1335)
 
-Ignored object!
+Player saved: liam
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-Projectile:Ignore(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:96)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:26)
+CraftingLocation:OnPlayerSaved(NetworkMessage) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\CraftingLocation.cs:46)
+UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
+UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
+UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
+UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
  
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 96)
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/CraftingLocation.cs Line: 46)
 
-Projectile dying!
+Empty player list given to NetworkServer.Destroy(), nothing to do.
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Projectile:Die() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:77)
-Projectile:FixedUpdate() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:29)
+UnityEngine.Debug:LogWarning(Object)
+UnityEngine.Networking.NetworkServer:DestroyPlayersForConnection(NetworkConnection) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:1335)
+CraftingLocation:OnPlayerSaved(NetworkMessage) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\CraftingLocation.cs:48)
+UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
+UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
+UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
+UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
  
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 77)
+(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkServer.cs Line: 1335)
 
-Projectile locked: 
+Player saved: liam
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-Projectile:Lock(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:84)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:25)
+CraftingLocation:OnPlayerSaved(NetworkMessage) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\CraftingLocation.cs:46)
+UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
+UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
+UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
+UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
  
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 84)
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/CraftingLocation.cs Line: 46)
 
-Ignoring object!
+Empty player list given to NetworkServer.Destroy(), nothing to do.
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Projectile:Ignore(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:94)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:26)
+UnityEngine.Debug:LogWarning(Object)
+UnityEngine.Networking.NetworkServer:DestroyPlayersForConnection(NetworkConnection) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:1335)
+CraftingLocation:OnPlayerSaved(NetworkMessage) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\CraftingLocation.cs:48)
+UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
+UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
+UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
+UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
  
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 94)
+(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkServer.cs Line: 1335)
 
-Ignored object!
+Player saved: liam
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-Projectile:Ignore(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:96)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:26)
+CraftingLocation:OnPlayerSaved(NetworkMessage) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\CraftingLocation.cs:46)
+UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
+UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
+UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
+UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
  
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 96)
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/CraftingLocation.cs Line: 46)
 
-Projectile dying!
+Empty player list given to NetworkServer.Destroy(), nothing to do.
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Projectile:Die() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:77)
-Projectile:FixedUpdate() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:29)
+UnityEngine.Debug:LogWarning(Object)
+UnityEngine.Networking.NetworkServer:DestroyPlayersForConnection(NetworkConnection) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:1335)
+CraftingLocation:OnPlayerSaved(NetworkMessage) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\CraftingLocation.cs:48)
+UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
+UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
+UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
+UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
  
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 77)
+(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkServer.cs Line: 1335)
 
-Projectile locked: 
+Player instance not found when handling Command message [playerControllerId=0]
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Projectile:Lock(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:84)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:25)
+UnityEngine.Debug:LogWarning(Object)
+UnityEngine.Networking.NetworkServer:OnCommandMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:1207)
+UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
+UnityEngine.Networking.NetworkServer:InternalUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:652)
+UnityEngine.Networking.NetworkServer:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:514)
+UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:706)
  
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 84)
+(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkServer.cs Line: 1207)
 
-Ignoring object!
+Player instance not found when handling Command message [playerControllerId=0]
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Projectile:Ignore(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:94)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:26)
+UnityEngine.Debug:LogWarning(Object)
+UnityEngine.Networking.NetworkServer:OnCommandMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:1207)
+UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
+UnityEngine.Networking.NetworkServer:InternalUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:652)
+UnityEngine.Networking.NetworkServer:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:514)
+UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:706)
  
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 94)
+(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkServer.cs Line: 1207)
 
-Ignored object!
+Player instance not found when handling Command message [playerControllerId=0]
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Projectile:Ignore(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:96)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:26)
+UnityEngine.Debug:LogWarning(Object)
+UnityEngine.Networking.NetworkServer:OnCommandMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:1207)
+UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
+UnityEngine.Networking.NetworkServer:InternalUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:652)
+UnityEngine.Networking.NetworkServer:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:514)
+UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:706)
  
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 96)
+(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkServer.cs Line: 1207)
 
-Projectile locked: 
+Empty player list given to NetworkServer.Destroy(), nothing to do.
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Projectile:Lock(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:84)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:25)
+UnityEngine.Debug:LogWarning(Object)
+UnityEngine.Networking.NetworkServer:DestroyPlayersForConnection(NetworkConnection) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:1335)
+UnityEngine.Networking.NetworkManager:OnServerDisconnect(NetworkConnection) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkManager.cs:687)
+UnityEngine.Networking.NetworkManager:OnServerDisconnectInternal(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkManager.cs:581)
+UnityEngine.Networking.NetworkMessageHandlers:InvokeHandler(Int16, NetworkConnection, NetworkReader, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkMessageHandlers.cs:73)
+UnityEngine.Networking.NetworkMessageHandlers:InvokeHandlerNoData(Int16, NetworkConnection) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkMessageHandlers.cs:60)
+UnityEngine.Networking.NetworkServer:InternalUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:681)
+UnityEngine.Networking.NetworkServer:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:514)
+UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:706)
  
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 84)
+(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkServer.cs Line: 1335)
 
-Ignoring object!
+Server added player
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-Projectile:Ignore(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:94)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:26)
+ShipServer:OnServerConnect(NetworkConnection) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\SceneServers\ShipServer.cs:64)
+UnityEngine.Networking.NetworkManager:OnServerConnectInternal(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkManager.cs:574)
+UnityEngine.Networking.NetworkMessageHandlers:InvokeHandler(Int16, NetworkConnection, NetworkReader, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkMessageHandlers.cs:73)
+UnityEngine.Networking.NetworkMessageHandlers:InvokeHandlerNoData(Int16, NetworkConnection) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkMessageHandlers.cs:60)
+UnityEngine.Networking.NetworkServer:InternalUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:624)
+UnityEngine.Networking.NetworkServer:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:514)
+UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:706)
  
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 94)
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/SceneServers/ShipServer.cs Line: 64)
 
-Ignored object!
+OnSendPlayer: liam
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-Projectile:Ignore(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:96)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:26)
+ShipServer:OnSendPlayer(NetworkMessage) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\SceneServers\ShipServer.cs:77)
+UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
+UnityEngine.Networking.NetworkServer:InternalUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:652)
+UnityEngine.Networking.NetworkServer:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:514)
+UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:706)
  
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 96)
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/SceneServers/ShipServer.cs Line: 77)
 
-Projectile locked: 
+Started player on server!
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-Projectile:Lock(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:84)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:25)
+LocalPlayer:Start() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\LocalPlayer.cs:20)
  
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 84)
-
-Ignoring object!
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Projectile:Ignore(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:94)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:26)
- 
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 94)
-
-Ignored object!
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Projectile:Ignore(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:96)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:26)
- 
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 96)
-
-Projectile dying!
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Projectile:Die() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:77)
-Projectile:FixedUpdate() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:29)
- 
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 77)
-
-Projectile locked: 
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Projectile:Lock(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:84)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:25)
- 
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 84)
-
-Ignoring object!
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Projectile:Ignore(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:94)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:26)
- 
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 94)
-
-Ignored object!
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Projectile:Ignore(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:96)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:26)
- 
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 96)
-
-Projectile locked: 
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Projectile:Lock(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:84)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:25)
- 
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 84)
-
-Ignoring object!
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Projectile:Ignore(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:94)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:26)
- 
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 94)
-
-Ignored object!
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Projectile:Ignore(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:96)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:26)
- 
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 96)
-
-Projectile dying!
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Projectile:Die() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:77)
-Projectile:FixedUpdate() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:29)
- 
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 77)
-
-Projectile locked: 
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Projectile:Lock(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:84)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:25)
- 
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 84)
-
-Ignoring object!
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Projectile:Ignore(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:94)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:26)
- 
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 94)
-
-Ignored object!
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Projectile:Ignore(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:96)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:26)
- 
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 96)
-
-Projectile dying!
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Projectile:Die() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:77)
-Projectile:FixedUpdate() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:29)
- 
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 77)
-
-Projectile locked: 
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Projectile:Lock(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:84)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:25)
- 
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 84)
-
-Ignoring object!
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Projectile:Ignore(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:94)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:26)
- 
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 94)
-
-Ignored object!
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Projectile:Ignore(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:96)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:26)
- 
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 96)
-
-Projectile dying!
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Projectile:Die() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:77)
-Projectile:FixedUpdate() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:29)
- 
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 77)
-
-Projectile locked: 
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Projectile:Lock(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:84)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:25)
- 
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 84)
-
-Ignoring object!
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Projectile:Ignore(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:94)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:26)
- 
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 94)
-
-Ignored object!
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Projectile:Ignore(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:96)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:26)
- 
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 96)
-
-Projectile dying!
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Projectile:Die() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:77)
-Projectile:FixedUpdate() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:29)
- 
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 77)
-
-Projectile locked: 
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Projectile:Lock(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:84)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:25)
- 
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 84)
-
-Ignoring object!
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Projectile:Ignore(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:94)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:26)
- 
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 94)
-
-Ignored object!
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Projectile:Ignore(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:96)
-Weapon:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Weapon.cs:26)
- 
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 96)
-
-Projectile dying!
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Projectile:Die() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:77)
-Projectile:FixedUpdate() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:29)
- 
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 77)
-
-Projectile dying!
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Projectile:Die() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:77)
-Projectile:FixedUpdate() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\Projectile.cs:29)
- 
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/Projectile.cs Line: 77)
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Client/LocalPlayer.cs Line: 20)
 

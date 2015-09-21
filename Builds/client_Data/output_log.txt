@@ -2,9 +2,9 @@ Mono path[0] = 'C:/Users/Liam/workspace/green/green/Builds/client_Data/Managed'
 Mono path[1] = 'C:/Users/Liam/workspace/green/green/Builds/client_Data/Mono'
 Mono config path = 'C:/Users/Liam/workspace/green/green/Builds/client_Data/Mono/etc'
 PlayerConnection initialized from C:/Users/Liam/workspace/green/green/Builds/client_Data (debug = 0)
-PlayerConnection initialized network socket : 0.0.0.0 55471
-Multi-casting "[IP] 192.168.1.67 [Port] 55471 [Flags] 2 [Guid] 2901626329 [EditorId] 2260675390 [Version] 1048832 [Id] WindowsPlayer(Zeus) [Debug] 0" to [225.0.0.222:54997]...
-PlayerConnection already initialized - listening to [192.168.1.67:55471]
+PlayerConnection initialized network socket : 0.0.0.0 55504
+Multi-casting "[IP] 192.168.1.67 [Port] 55504 [Flags] 2 [Guid] 3285246712 [EditorId] 1322224484 [Version] 1048832 [Id] WindowsPlayer(Zeus) [Debug] 0" to [225.0.0.222:54997]...
+PlayerConnection already initialized - listening to [192.168.1.67:55504]
 Initialize engine version: 5.1.1f1 (2046fc06d4d8)
 GfxDevice: creating device client; threaded=1
 Direct3D:
@@ -23,7 +23,7 @@ Platform assembly: C:\Users\Liam\workspace\green\green\Builds\client_Data\Manage
 Loading C:\Users\Liam\workspace\green\green\Builds\client_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Liam\workspace\green\green\Builds\client_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
 Loading C:\Users\Liam\workspace\green\green\Builds\client_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.110 seconds
+- Completed reload, in  0.099 seconds
 desktop: 1920x1080 60Hz; virtual: 3840x1080 at -1920,0
 <RI> Initializing input.
 <RI> Input initialized.
@@ -31,7 +31,79 @@ desktop: 1920x1080 60Hz; virtual: 3840x1080 at -1920,0
 Platform assembly: C:\Users\Liam\workspace\green\green\Builds\client_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Liam\workspace\green\green\Builds\client_Data\Managed\System.dll (this message is harmless)
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: aa50 -> priority: 1 
+  Thread -> id: 8f98 -> priority: 1 
+Creating player
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+StartGame:OnClick() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\StartGame.cs:19)
+UnityEngine.Events.InvokableCall:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:137)
+UnityEngine.Events.InvokableCallList:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:602)
+UnityEngine.Events.UnityEventBase:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:744)
+UnityEngine.Events.UnityEvent:Invoke() (at C:\buildslave\unity\build\Runtime\Export\UnityEvent_0.cs:53)
+UnityEngine.UI.Button:Press() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\UI\Core\Button.cs:35)
+UnityEngine.UI.Button:OnPointerClick(PointerEventData) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\UI\Core\Button.cs:44)
+UnityEngine.EventSystems.ExecuteEvents:Execute(IPointerClickHandler, BaseEventData) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\ExecuteEvents.cs:52)
+UnityEngine.EventSystems.ExecuteEvents:Execute(GameObject, BaseEventData, EventFunction`1) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\ExecuteEvents.cs:269)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMousePress(MouseButtonEventData) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:372)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:271)
+UnityEngine.EventSystems.StandaloneInputModule:Process() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:169)
+UnityEngine.EventSystems.EventSystem:Update() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\EventSystem.cs:271)
+ 
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Client/StartGame.cs Line: 19)
+
+Player created
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+StartGame:OnPlayerCreated(NetworkMessage) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\StartGame.cs:34)
+UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
+UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
+UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
+UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
+ 
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Client/StartGame.cs Line: 34)
+
+Connecting to scene: Client
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+PlayerClient:ConnectToScene(String) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\PlayerClient.cs:52)
+StartGame:OnPlayerCreated(NetworkMessage) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\StartGame.cs:35)
+UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
+UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
+UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
+UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
+ 
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Client/PlayerClient.cs Line: 52)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 5.024394 ms
+System memory in use before: 19.8 MB.
+System memory in use after: 19.8 MB.
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 410.
+Total: 0.430697 ms (FindLiveObjects: 0.014273 ms CreateObjectMapping: 0.016135 ms MarkObjects: 0.391599 ms  DeleteObjects: 0.008067 ms)
+
+OnRequestPlayer
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+PlayerClient:OnRequestPlayer(NetworkMessage) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\PlayerClient.cs:59)
+UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
+UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
+UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
+UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
+ 
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Client/PlayerClient.cs Line: 59)
+
+Client scene ready!
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+PlayerClient:OnRequestPlayer(NetworkMessage) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\PlayerClient.cs:63)
+UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
+UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
+UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
+UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
+ 
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Client/PlayerClient.cs Line: 63)
+
 Local player detected!
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
@@ -68,1010 +140,344 @@ LocalPlayer:Start() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Clien
  
 (Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Client/LocalPlayer.cs Line: 34)
 
-No target!
+Ship(Clone) (CraftingSystem)
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-TargetingUI:GetTarget() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\TargetingUI.cs:166)
-TargetingSystem:GetTarget() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Shared\TargetingSystem.cs:132)
-TargetingSystem:UpdateUnlocked() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Shared\TargetingSystem.cs:55)
-TargetingSystem:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Shared\TargetingSystem.cs:42)
+LocalPlayer:LocalStart() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\LocalPlayer.cs:34)
+LocalPlayer:Start() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\LocalPlayer.cs:16)
  
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Client/TargetingUI.cs Line: 166)
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Client/LocalPlayer.cs Line: 34)
 
-tried to find image within 50 pixels of (462.4072, 318.6804)
+Checking distance vs CraftingLocation (UnityEngine.GameObject): 161.753
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-TargetingUI:GetTarget() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\TargetingUI.cs:167)
-TargetingSystem:GetTarget() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Shared\TargetingSystem.cs:132)
-TargetingSystem:UpdateUnlocked() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Shared\TargetingSystem.cs:55)
-TargetingSystem:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Shared\TargetingSystem.cs:42)
+CraftingSystem:Distance(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:57)
+CraftingSystem:<FindCraftingLocation>m__0(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:47)
+System.Collections.Generic.List`1:RemoveAll(Predicate`1) (at /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Collections.Generic/List.cs:514)
+CraftingSystem:FindCraftingLocation() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:47)
+CraftingSystem:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:13)
  
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Client/TargetingUI.cs Line: 167)
+(Filename: /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Collections.Generic/List.cs Line: 514)
 
-No target!
+Entering crafting mode
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-TargetingUI:GetTarget() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\TargetingUI.cs:166)
-TargetingSystem:GetTarget() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Shared\TargetingSystem.cs:132)
-TargetingSystem:UpdateUnlocked() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Shared\TargetingSystem.cs:55)
-TargetingSystem:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Shared\TargetingSystem.cs:42)
+CraftingSystem:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:26)
  
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Client/TargetingUI.cs Line: 166)
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Client/CraftingSystem.cs Line: 26)
 
-tried to find image within 50 pixels of (462.4072, 318.6804)
+Checking distance vs CraftingLocation (UnityEngine.GameObject): 161.7545
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-TargetingUI:GetTarget() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\TargetingUI.cs:167)
-TargetingSystem:GetTarget() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Shared\TargetingSystem.cs:132)
-TargetingSystem:UpdateUnlocked() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Shared\TargetingSystem.cs:55)
-TargetingSystem:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Shared\TargetingSystem.cs:42)
+CraftingSystem:Distance(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:57)
+CraftingSystem:<FindCraftingLocation>m__0(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:47)
+System.Collections.Generic.List`1:RemoveAll(Predicate`1) (at /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Collections.Generic/List.cs:514)
+CraftingSystem:FindCraftingLocation() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:47)
+CraftingSystem:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:13)
  
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Client/TargetingUI.cs Line: 167)
+(Filename: /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Collections.Generic/List.cs Line: 514)
 
-No target!
+Entering crafting mode
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-TargetingUI:GetTarget() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\TargetingUI.cs:166)
-TargetingSystem:GetTarget() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Shared\TargetingSystem.cs:132)
-TargetingSystem:UpdateUnlocked() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Shared\TargetingSystem.cs:55)
-TargetingSystem:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Shared\TargetingSystem.cs:42)
+CraftingSystem:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:26)
  
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Client/TargetingUI.cs Line: 166)
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Client/CraftingSystem.cs Line: 26)
 
-tried to find image within 50 pixels of (462.4072, 318.6804)
+Checking distance vs CraftingLocation (UnityEngine.GameObject): 161.7559
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-TargetingUI:GetTarget() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\TargetingUI.cs:167)
-TargetingSystem:GetTarget() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Shared\TargetingSystem.cs:132)
-TargetingSystem:UpdateUnlocked() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Shared\TargetingSystem.cs:55)
-TargetingSystem:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Shared\TargetingSystem.cs:42)
+CraftingSystem:Distance(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:57)
+CraftingSystem:<FindCraftingLocation>m__0(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:47)
+System.Collections.Generic.List`1:RemoveAll(Predicate`1) (at /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Collections.Generic/List.cs:514)
+CraftingSystem:FindCraftingLocation() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:47)
+CraftingSystem:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:13)
  
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Client/TargetingUI.cs Line: 167)
+(Filename: /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Collections.Generic/List.cs Line: 514)
 
-No target!
+Entering crafting mode
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-TargetingUI:GetTarget() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\TargetingUI.cs:166)
-TargetingSystem:GetTarget() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Shared\TargetingSystem.cs:132)
-TargetingSystem:UpdateUnlocked() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Shared\TargetingSystem.cs:55)
-TargetingSystem:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Shared\TargetingSystem.cs:42)
+CraftingSystem:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:26)
  
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Client/TargetingUI.cs Line: 166)
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Client/CraftingSystem.cs Line: 26)
 
-tried to find image within 50 pixels of (462.4072, 318.6804)
+Checking distance vs CraftingLocation (UnityEngine.GameObject): 161.7578
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-TargetingUI:GetTarget() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\TargetingUI.cs:167)
-TargetingSystem:GetTarget() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Shared\TargetingSystem.cs:132)
-TargetingSystem:UpdateUnlocked() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Shared\TargetingSystem.cs:55)
-TargetingSystem:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Shared\TargetingSystem.cs:42)
+CraftingSystem:Distance(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:57)
+CraftingSystem:<FindCraftingLocation>m__0(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:47)
+System.Collections.Generic.List`1:RemoveAll(Predicate`1) (at /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Collections.Generic/List.cs:514)
+CraftingSystem:FindCraftingLocation() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:47)
+CraftingSystem:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:13)
  
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Client/TargetingUI.cs Line: 167)
+(Filename: /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Collections.Generic/List.cs Line: 514)
 
-Failed to invoke RPC ClientRpc:Projectile:InvokeRpcRpcDie(1293891041) on netID 2
+Entering crafting mode
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:LogWarning(Object)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:456)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkIdentity.cs Line: 456)
-
-DumpInvokers size:6
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:262)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 262)
-
-  Invoker:Missile:InvokeRpcRpcDie ClientRpc -943459644
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
-
-  Invoker:Projectile:InvokeRpcRpcDie ClientRpc 1293891041
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
-
-  Invoker:PlayerInput:InvokeCmdCmdSend Command 778998961
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
-
-  Invoker:TargetingSystem:InvokeCmdCmdLocking Command -279417001
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
-
-  Invoker:TargetingSystem:InvokeCmdCmdUnlock Command -860381500
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
-
-  Invoker:TargetingSystem:InvokeRpcRpcLock ClientRpc -411521663
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
-
-Failed to invoke RPC ClientRpc:Projectile:InvokeRpcRpcDie(1293891041) on netID 3
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:LogWarning(Object)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:456)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkIdentity.cs Line: 456)
-
-DumpInvokers size:6
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:262)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 262)
-
-  Invoker:Missile:InvokeRpcRpcDie ClientRpc -943459644
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
-
-  Invoker:Projectile:InvokeRpcRpcDie ClientRpc 1293891041
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
-
-  Invoker:PlayerInput:InvokeCmdCmdSend Command 778998961
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
-
-  Invoker:TargetingSystem:InvokeCmdCmdLocking Command -279417001
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
-
-  Invoker:TargetingSystem:InvokeCmdCmdUnlock Command -860381500
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
-
-  Invoker:TargetingSystem:InvokeRpcRpcLock ClientRpc -411521663
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
-
-Failed to invoke RPC ClientRpc:Projectile:InvokeRpcRpcDie(1293891041) on netID 4
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:LogWarning(Object)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:456)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkIdentity.cs Line: 456)
-
-DumpInvokers size:6
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:262)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 262)
-
-  Invoker:Missile:InvokeRpcRpcDie ClientRpc -943459644
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
-
-  Invoker:Projectile:InvokeRpcRpcDie ClientRpc 1293891041
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
-
-  Invoker:PlayerInput:InvokeCmdCmdSend Command 778998961
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
-
-  Invoker:TargetingSystem:InvokeCmdCmdLocking Command -279417001
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
-
-  Invoker:TargetingSystem:InvokeCmdCmdUnlock Command -860381500
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
-
-  Invoker:TargetingSystem:InvokeRpcRpcLock ClientRpc -411521663
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
-
-Failed to invoke RPC ClientRpc:Projectile:InvokeRpcRpcDie(1293891041) on netID 5
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:LogWarning(Object)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:456)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkIdentity.cs Line: 456)
-
-DumpInvokers size:6
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:262)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 262)
-
-  Invoker:Missile:InvokeRpcRpcDie ClientRpc -943459644
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
-
-  Invoker:Projectile:InvokeRpcRpcDie ClientRpc 1293891041
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
-
-  Invoker:PlayerInput:InvokeCmdCmdSend Command 778998961
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
-
-  Invoker:TargetingSystem:InvokeCmdCmdLocking Command -279417001
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
-
-  Invoker:TargetingSystem:InvokeCmdCmdUnlock Command -860381500
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
-
-  Invoker:TargetingSystem:InvokeRpcRpcLock ClientRpc -411521663
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
-
-Failed to invoke RPC ClientRpc:Projectile:InvokeRpcRpcDie(1293891041) on netID 6
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:LogWarning(Object)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:456)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkIdentity.cs Line: 456)
-
-DumpInvokers size:6
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:262)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 262)
-
-  Invoker:Missile:InvokeRpcRpcDie ClientRpc -943459644
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
-
-  Invoker:Projectile:InvokeRpcRpcDie ClientRpc 1293891041
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
-
-  Invoker:PlayerInput:InvokeCmdCmdSend Command 778998961
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
-
-  Invoker:TargetingSystem:InvokeCmdCmdLocking Command -279417001
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
+CraftingSystem:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:26)
  
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Client/CraftingSystem.cs Line: 26)
 
-  Invoker:TargetingSystem:InvokeCmdCmdUnlock Command -860381500
+Checking distance vs CraftingLocation (UnityEngine.GameObject): 161.7598
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
+CraftingSystem:Distance(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:57)
+CraftingSystem:<FindCraftingLocation>m__0(GameObject) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:47)
+System.Collections.Generic.List`1:RemoveAll(Predicate`1) (at /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Collections.Generic/List.cs:514)
+CraftingSystem:FindCraftingLocation() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:47)
+CraftingSystem:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:13)
  
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
+(Filename: /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Collections.Generic/List.cs Line: 514)
 
-  Invoker:TargetingSystem:InvokeRpcRpcLock ClientRpc -411521663
+Entering crafting mode
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
-
-Failed to invoke RPC ClientRpc:Projectile:InvokeRpcRpcDie(1293891041) on netID 7
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:LogWarning(Object)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:456)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
+CraftingSystem:Update() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\CraftingSystem.cs:26)
  
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkIdentity.cs Line: 456)
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Client/CraftingSystem.cs Line: 26)
 
-DumpInvokers size:6
+Changing scene: ShipEditor
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:262)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
+PlayerClient:OnChangeScene(NetworkMessage) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\PlayerClient.cs:68)
 UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
 UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
 UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
 UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
  
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 262)
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Client/PlayerClient.cs Line: 68)
 
-  Invoker:Missile:InvokeRpcRpcDie ClientRpc -943459644
+Connecting to scene: ShipEditor
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
+PlayerClient:ConnectToScene(String) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\PlayerClient.cs:52)
+PlayerClient:OnChangeScene(NetworkMessage) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\PlayerClient.cs:69)
 UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
 UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
 UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
 UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
  
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Client/PlayerClient.cs Line: 52)
 
-  Invoker:Projectile:InvokeRpcRpcDie ClientRpc 1293891041
+Changing scene: ShipEditor
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
+PlayerClient:OnChangeScene(NetworkMessage) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\PlayerClient.cs:68)
 UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
 UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
 UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
 UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
  
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Client/PlayerClient.cs Line: 68)
 
-  Invoker:PlayerInput:InvokeCmdCmdSend Command 778998961
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+Connecting to scene: ShipEditor
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
+PlayerClient:ConnectToScene(String) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\PlayerClient.cs:52)
+PlayerClient:OnChangeScene(NetworkMessage) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\PlayerClient.cs:69)
 UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
 UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
 UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
 UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
  
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Client/PlayerClient.cs Line: 52)
 
-  Invoker:TargetingSystem:InvokeCmdCmdLocking Command -279417001
+Changing scene: ShipEditor
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
+PlayerClient:OnChangeScene(NetworkMessage) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\PlayerClient.cs:68)
 UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
 UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
 UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
 UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
  
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Client/PlayerClient.cs Line: 68)
 
-  Invoker:TargetingSystem:InvokeCmdCmdUnlock Command -860381500
+Connecting to scene: ShipEditor
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
+PlayerClient:ConnectToScene(String) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\PlayerClient.cs:52)
+PlayerClient:OnChangeScene(NetworkMessage) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\PlayerClient.cs:69)
 UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
 UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
 UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
 UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
  
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Client/PlayerClient.cs Line: 52)
 
-  Invoker:TargetingSystem:InvokeRpcRpcLock ClientRpc -411521663
+Changing scene: ShipEditor
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
-
-Failed to invoke RPC ClientRpc:Projectile:InvokeRpcRpcDie(1293891041) on netID 8
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:LogWarning(Object)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:456)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
+PlayerClient:OnChangeScene(NetworkMessage) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\PlayerClient.cs:68)
 UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
 UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
 UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
 UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
  
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkIdentity.cs Line: 456)
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Client/PlayerClient.cs Line: 68)
 
-DumpInvokers size:6
+Connecting to scene: ShipEditor
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:262)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
+PlayerClient:ConnectToScene(String) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\PlayerClient.cs:52)
+PlayerClient:OnChangeScene(NetworkMessage) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\PlayerClient.cs:69)
 UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
 UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
 UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
 UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
  
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 262)
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Client/PlayerClient.cs Line: 52)
 
-  Invoker:Missile:InvokeRpcRpcDie ClientRpc -943459644
+Changing scene: ShipEditor
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
+PlayerClient:OnChangeScene(NetworkMessage) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\PlayerClient.cs:68)
 UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
 UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
 UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
 UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
  
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Client/PlayerClient.cs Line: 68)
 
-  Invoker:Projectile:InvokeRpcRpcDie ClientRpc 1293891041
+Connecting to scene: ShipEditor
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
+PlayerClient:ConnectToScene(String) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\PlayerClient.cs:52)
+PlayerClient:OnChangeScene(NetworkMessage) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\PlayerClient.cs:69)
 UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
 UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
 UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
 UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
  
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Client/PlayerClient.cs Line: 52)
 
-  Invoker:PlayerInput:InvokeCmdCmdSend Command 778998961
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
+UnloadTime: 0.687316 ms
+System memory in use before: 20.9 MB.
+System memory in use after: 20.7 MB.
 
-  Invoker:TargetingSystem:InvokeCmdCmdLocking Command -279417001
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
+Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 285.
+Total: 0.254136 ms (FindLiveObjects: 0.012412 ms CreateObjectMapping: 0.012101 ms MarkObjects: 0.202626 ms  DeleteObjects: 0.026065 ms)
 
-  Invoker:TargetingSystem:InvokeCmdCmdUnlock Command -860381500
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.259101 ms
+System memory in use before: 20.7 MB.
+System memory in use after: 20.7 MB.
 
-  Invoker:TargetingSystem:InvokeRpcRpcLock ClientRpc -411521663
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 285.
+Total: 0.224347 ms (FindLiveObjects: 0.011791 ms CreateObjectMapping: 0.011791 ms MarkObjects: 0.193317 ms  DeleteObjects: 0.006826 ms)
 
-Failed to invoke RPC ClientRpc:Projectile:InvokeRpcRpcDie(1293891041) on netID 9
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:LogWarning(Object)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:456)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkIdentity.cs Line: 456)
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.243586 ms
+System memory in use before: 20.6 MB.
+System memory in use after: 20.7 MB.
 
-DumpInvokers size:6
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:262)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 262)
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 285.
+Total: 0.210694 ms (FindLiveObjects: 0.009309 ms CreateObjectMapping: 0.011791 ms MarkObjects: 0.181215 ms  DeleteObjects: 0.007757 ms)
 
-  Invoker:Missile:InvokeRpcRpcDie ClientRpc -943459644
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.241414 ms
+System memory in use before: 20.6 MB.
+System memory in use after: 20.7 MB.
 
-  Invoker:Projectile:InvokeRpcRpcDie ClientRpc 1293891041
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 285.
+Total: 0.276478 ms (FindLiveObjects: 0.017066 ms CreateObjectMapping: 0.012412 ms MarkObjects: 0.234277 ms  DeleteObjects: 0.011481 ms)
 
-  Invoker:PlayerInput:InvokeCmdCmdSend Command 778998961
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.252274 ms
+System memory in use before: 20.6 MB.
+System memory in use after: 20.7 MB.
 
-  Invoker:TargetingSystem:InvokeCmdCmdLocking Command -279417001
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 285.
+Total: 0.266858 ms (FindLiveObjects: 0.013032 ms CreateObjectMapping: 0.012412 ms MarkObjects: 0.232415 ms  DeleteObjects: 0.008378 ms)
 
-  Invoker:TargetingSystem:InvokeCmdCmdUnlock Command -860381500
+OnRequestPlayer
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
+PlayerClient:OnRequestPlayer(NetworkMessage) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\PlayerClient.cs:59)
 UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
 UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
 UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
 UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
  
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Client/PlayerClient.cs Line: 59)
 
-  Invoker:TargetingSystem:InvokeRpcRpcLock ClientRpc -411521663
+Client scene ready!
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
-
-Failed to invoke RPC ClientRpc:Projectile:InvokeRpcRpcDie(1293891041) on netID 10
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:LogWarning(Object)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:456)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
+PlayerClient:OnRequestPlayer(NetworkMessage) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\PlayerClient.cs:63)
 UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
 UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
 UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
 UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
  
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkIdentity.cs Line: 456)
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Client/PlayerClient.cs Line: 63)
 
-DumpInvokers size:6
+Spawn scene object not found for 1
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:262)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
+UnityEngine.Debug:LogError(Object)
+UnityEngine.Networking.ClientScene:OnObjectSpawnScene(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:471)
 UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
 UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
 UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
 UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
  
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 262)
+(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/ClientScene.cs Line: 471)
 
-  Invoker:Missile:InvokeRpcRpcDie ClientRpc -943459644
+Spawn scene object not found for 2
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
+UnityEngine.Debug:LogError(Object)
+UnityEngine.Networking.ClientScene:OnObjectSpawnScene(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:471)
 UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
 UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
 UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
 UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
  
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
+(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/ClientScene.cs Line: 471)
 
-  Invoker:Projectile:InvokeRpcRpcDie ClientRpc 1293891041
+Local player detected!
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
+LocalPlayer:Start() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\LocalPlayer.cs:14)
  
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Client/LocalPlayer.cs Line: 14)
 
-  Invoker:PlayerInput:InvokeCmdCmdSend Command 778998961
+Targeting UI enabled!
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
+TargetingUI:OnEnable() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\TargetingUI.cs:64)
+UnityEngine.Behaviour:set_enabled(Boolean)
+LocalPlayer:LocalStart() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\LocalPlayer.cs:33)
+LocalPlayer:Start() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\LocalPlayer.cs:16)
  
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Client/TargetingUI.cs Line: 64)
 
-  Invoker:TargetingSystem:InvokeCmdCmdLocking Command -279417001
+Active reticle set to 313.878, 283.597
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
+TargetingUI:CreateReticle() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\TargetingUI.cs:85)
+TargetingUI:OnEnable() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\TargetingUI.cs:71)
+UnityEngine.Behaviour:set_enabled(Boolean)
+LocalPlayer:LocalStart() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\LocalPlayer.cs:33)
+LocalPlayer:Start() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\LocalPlayer.cs:16)
  
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Client/TargetingUI.cs Line: 85)
 
-  Invoker:TargetingSystem:InvokeCmdCmdUnlock Command -860381500
+Ship(Clone) (TargetingUI)
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
+LocalPlayer:LocalStart() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\LocalPlayer.cs:34)
+LocalPlayer:Start() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\LocalPlayer.cs:16)
  
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Client/LocalPlayer.cs Line: 34)
 
-  Invoker:TargetingSystem:InvokeRpcRpcLock ClientRpc -411521663
+Ship(Clone) (CraftingSystem)
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-UnityEngine.Networking.NetworkBehaviour:DumpInvokers() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:265)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:457)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:609)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:472)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:686)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:707)
+LocalPlayer:LocalStart() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\LocalPlayer.cs:34)
+LocalPlayer:Start() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Client\LocalPlayer.cs:16)
  
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkBehaviour.cs Line: 265)
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Client/LocalPlayer.cs Line: 34)
 
