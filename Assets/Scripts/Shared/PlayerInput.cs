@@ -35,9 +35,9 @@ public class PlayerInput : NetworkBehaviour {
 		state.horizontalLook = Input.GetAxis ("HorizontalLook");
 		state.verticalLook = Input.GetAxis ("VerticalLook");
 		
-		state.fire = Input.GetButton ("Fire1");
-		state.locking = Input.GetButton ("Locking");
-		state.craftingMode = Input.GetButton ("CraftingMode");
+		state.fire = Input.GetButtonDown ("Fire1");
+		state.locking = Input.GetButtonDown ("Locking");
+		state.craftingMode = Input.GetButtonDown ("CraftingMode");
 	}
 
 	public void LogState(String message) {

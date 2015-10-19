@@ -32,7 +32,7 @@ public class StartGame : MonoBehaviour {
 
 	public void OnPlayerCreated(NetworkMessage msg) {
 		Debug.Log ("Player created");
-		client.ConnectToScene ("Client");
+		client.ConnectToScene ("Region");
 	}
 
 	public void OnPlayerNotCreated(NetworkMessage msg) {

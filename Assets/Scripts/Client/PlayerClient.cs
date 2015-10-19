@@ -48,10 +48,14 @@ public class PlayerClient : MonoBehaviour {
 	}
 
 	public void ConnectToScene(string scene) {
-		client.Disconnect();
+		Disconnect();
 		Debug.Log (String.Format ("Connecting to scene: {0}", scene));
 		Application.LoadLevel (scene);
-		client.Connect ("localhost", 7777);
+
+		ServerData server = ServerInfo.GetHost(scene);
+		if (server != null) {
+			client.Connect (server.host, server.port);
+		}
 	}
 
 	public void OnRequestPlayer(NetworkMessage msg) {
@@ -67,5 +71,13 @@ public class PlayerClient : MonoBehaviour {
 		var scene = msg.ReadMessage<ChangeSceneMessage>().scene;
 		Debug.Log (String.Format ("Changing scene: {0}", scene));
 		ConnectToScene(scene);
+	}
+
+	private void Disconnect() {
+		if (client.isConnected) {
+			ClientScene.RemovePlayer (0);
+			ClientScene.DestroyAllClientObjects();
+			client.Disconnect ();
+		}
 	}
 }

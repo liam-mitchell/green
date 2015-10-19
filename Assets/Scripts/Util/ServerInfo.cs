@@ -7,14 +7,17 @@ public class ServerInfo {
 	private static Dictionary<string, ServerData> info;
 	static ServerInfo() {
 		info = new Dictionary<string, ServerData>() {
-			{"region", new ServerData(LOCALHOST, 7777)},
-			{"player-data", new ServerData(LOCALHOST, 7778)}
+			{"Region", new ServerData(LOCALHOST, 7777)},
+			{"PlayerData", new ServerData(LOCALHOST, 7778)}
 		};
 	}
 
 	public static ServerData GetHost(string server) {
 		ServerData data;
-		info.TryGetValue(server, out data);
-		return data;
+		if (info.TryGetValue(server, out data)) {
+			return data;
+		}
+
+		return null;
 	}
 }

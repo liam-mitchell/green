@@ -17,7 +17,7 @@ public class PlayerDataPeer {
 	}
 	
 	public void Connect() {
-		var info = ServerInfo.GetHost ("player-data");
+		var info = ServerInfo.GetHost ("PlayerData");
 		client.Connect (info.host, info.port);
 	}
 

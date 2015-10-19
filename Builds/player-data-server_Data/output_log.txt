@@ -2,9 +2,9 @@ Mono path[0] = 'C:/Users/Liam/workspace/green/green/Builds/player-data-server_Da
 Mono path[1] = 'C:/Users/Liam/workspace/green/green/Builds/player-data-server_Data/Mono'
 Mono config path = 'C:/Users/Liam/workspace/green/green/Builds/player-data-server_Data/Mono/etc'
 PlayerConnection initialized from C:/Users/Liam/workspace/green/green/Builds/player-data-server_Data (debug = 0)
-PlayerConnection initialized network socket : 0.0.0.0 55197
-Multi-casting "[IP] 192.168.1.67 [Port] 55197 [Flags] 2 [Guid] 2741856410 [EditorId] 1322224484 [Version] 1048832 [Id] WindowsPlayer(Zeus) [Debug] 0" to [225.0.0.222:54997]...
-PlayerConnection already initialized - listening to [192.168.1.67:55197]
+PlayerConnection initialized network socket : 0.0.0.0 55339
+Multi-casting "[IP] 192.168.1.64 [Port] 55339 [Flags] 2 [Guid] 1353944389 [EditorId] 492673996 [Version] 1048832 [Id] WindowsPlayer(Zeus) [Debug] 0" to [225.0.0.222:54997]...
+PlayerConnection already initialized - listening to [192.168.1.64:55339]
 Initialize engine version: 5.1.1f1 (2046fc06d4d8)
 GfxDevice: creating device client; threaded=1
 Direct3D:
@@ -23,7 +23,7 @@ Platform assembly: C:\Users\Liam\workspace\green\green\Builds\player-data-server
 Loading C:\Users\Liam\workspace\green\green\Builds\player-data-server_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Liam\workspace\green\green\Builds\player-data-server_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
 Loading C:\Users\Liam\workspace\green\green\Builds\player-data-server_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.056 seconds
+- Completed reload, in  0.045 seconds
 desktop: 1920x1080 60Hz; virtual: 3840x1080 at -1920,0
 <RI> Initializing input.
 <RI> Input initialized.
@@ -38,71 +38,4 @@ PlayerDataServer:Start() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\
 (Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/SceneServers/DataServers/PlayerDataServer/PlayerDataServer.cs Line: 39)
 
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 8f54 -> priority: 1 
-Creating player liam
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-PlayerDataServer:OnCreatePlayer(NetworkMessage) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\SceneServers\DataServers\PlayerDataServer\PlayerDataServer.cs:44)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkServer:InternalUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:652)
-UnityEngine.Networking.NetworkServer:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:514)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:706)
- 
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/SceneServers/DataServers/PlayerDataServer/PlayerDataServer.cs Line: 44)
-
-Saving player liam
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-PlayerDataServer:OnSavePlayer(NetworkMessage) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\SceneServers\DataServers\PlayerDataServer\PlayerDataServer.cs:67)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkServer:InternalUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:652)
-UnityEngine.Networking.NetworkServer:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:514)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:706)
- 
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/SceneServers/DataServers/PlayerDataServer/PlayerDataServer.cs Line: 67)
-
-Saving player liam
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-PlayerDataServer:OnSavePlayer(NetworkMessage) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\SceneServers\DataServers\PlayerDataServer\PlayerDataServer.cs:67)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkServer:InternalUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:652)
-UnityEngine.Networking.NetworkServer:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:514)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:706)
- 
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/SceneServers/DataServers/PlayerDataServer/PlayerDataServer.cs Line: 67)
-
-Saving player liam
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-PlayerDataServer:OnSavePlayer(NetworkMessage) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\SceneServers\DataServers\PlayerDataServer\PlayerDataServer.cs:67)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkServer:InternalUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:652)
-UnityEngine.Networking.NetworkServer:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:514)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:706)
- 
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/SceneServers/DataServers/PlayerDataServer/PlayerDataServer.cs Line: 67)
-
-Saving player liam
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-PlayerDataServer:OnSavePlayer(NetworkMessage) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\SceneServers\DataServers\PlayerDataServer\PlayerDataServer.cs:67)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkServer:InternalUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:652)
-UnityEngine.Networking.NetworkServer:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:514)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:706)
- 
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/SceneServers/DataServers/PlayerDataServer/PlayerDataServer.cs Line: 67)
-
-Saving player liam
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-PlayerDataServer:OnSavePlayer(NetworkMessage) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\SceneServers\DataServers\PlayerDataServer\PlayerDataServer.cs:67)
-UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
-UnityEngine.Networking.NetworkServer:InternalUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:652)
-UnityEngine.Networking.NetworkServer:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:514)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:706)
- 
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/SceneServers/DataServers/PlayerDataServer/PlayerDataServer.cs Line: 67)
-
-Log: connection {2} has been disconnected by timeout; address {::ffff:127.0.0.1:52452}
+  Thread -> id: 2dd4 -> priority: 1 

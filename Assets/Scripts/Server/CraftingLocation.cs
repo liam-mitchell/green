@@ -45,7 +45,6 @@ public class CraftingLocation : NetworkBehaviour {
 		var connection = server.GetPlayerConnection(player);
 		Debug.Log (String.Format("Player saved: {0}", player.Username));
 		connection.SendByChannel ((short)MessageTypes.CHANGE_SCENE, new ChangeSceneMessage("ShipEditor"), 0);
-		NetworkServer.DestroyPlayersForConnection (connection);
 	}
 
 	public void OnPlayerNotSaved(NetworkMessage msg) {

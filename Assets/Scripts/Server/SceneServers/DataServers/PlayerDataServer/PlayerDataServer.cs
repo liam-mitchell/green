@@ -31,7 +31,7 @@ public class PlayerDataServer : MonoBehaviour {
 	
 		NetworkServer.Configure(ConnectionConfiguration.GetConfiguration(), 5);
 
-		var serverData = ServerInfo.GetHost ("player-data");
+		var serverData = ServerInfo.GetHost ("PlayerData");
 		if (!NetworkServer.Listen (serverData.port)) {
 			Debug.Log ("Unable to start server!");
 			return;
