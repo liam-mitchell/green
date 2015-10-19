@@ -5,6 +5,7 @@ using System;
 
 public class PlayerClient : MonoBehaviour {
 	public GameObject shipPrefab;
+	public GameObject playerPrefab;
 
 	public class SendPlayerMessage : MessageBase {
 		private Player player;
@@ -62,6 +63,7 @@ public class PlayerClient : MonoBehaviour {
 		msg.conn.SendByChannel ((short)MessageTypes.PLAYER, new SendPlayerMessage(player), 0);
 		Debug.Log (String.Format("OnRequestPlayer"));
 		ClientScene.RegisterPrefab(shipPrefab);
+		ClientScene.RegisterPrefab(playerPrefab);
 		ClientScene.Ready (msg.conn);
 		ClientScene.AddPlayer(0);
 		Debug.Log ("Client scene ready!");

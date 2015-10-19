@@ -20,6 +20,7 @@ public class LocalPlayer : MonoBehaviour {
 			Debug.Log ("Started player on server!");
 			SharedStart();
 		}
+		Debug.Log ("Started local player");
 	}
 
 	private void SharedStart() {

@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class PlayerDataStorage {
-	public GameObject newPlayerPrefab;
 	public Vector3 newPlayerPosition;
 
 	private List<PlayerData> data;
@@ -39,5 +38,30 @@ public class PlayerDataStorage {
 
 	private PlayerData FindPlayerData(string username) {
 		return data.Find (d => d.player.Username == username);
+	}
+
+	private PlayerData FindPlayerData(Player player) {
+		return FindPlayerData(player.Username);
+	}
+
+	public Ship FindPlayerShip(Player player) {
+		var data = FindPlayerData(player);
+		if (data != null) {
+			return data.ship;
+		}
+		else {
+			return null;
+		}
+	}
+
+	public bool ChangePlayerShip(Player player, Ship ship) {
+		var data = FindPlayerData(player);
+		if (data != null) {
+			data.ship = ship;
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 }

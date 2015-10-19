@@ -28,6 +28,8 @@ public class PlayerDataServer : MonoBehaviour {
 		NetworkServer.RegisterHandler((short)MessageTypes.CREATE_PLAYER, OnCreatePlayer);
 		NetworkServer.RegisterHandler((short)MessageTypes.REQ_PLAYER_DATA, OnRequestPlayerData);
 		NetworkServer.RegisterHandler((short)MessageTypes.SAVE_PLAYER, OnSavePlayer);
+		NetworkServer.RegisterHandler((short)MessageTypes.CHANGE_PLAYER_SHIP, OnChangePlayerShip);
+		NetworkServer.RegisterHandler((short)MessageTypes.REQ_PLAYER_SHIP, OnRequestPlayerShip);
 	
 		NetworkServer.Configure(ConnectionConfiguration.GetConfiguration(), 5);
 
@@ -70,6 +72,29 @@ public class PlayerDataServer : MonoBehaviour {
 		}
 		else {
 			msg.conn.SendByChannel((short)MessageTypes.PLAYER_NOT_SAVED, new PlayerNotSavedMessage(data.player), 0);
+		}
+	}
+
+	public void OnChangePlayerShip(NetworkMessage msg) {
+		var message = msg.ReadMessage<ChangePlayerShipMessage>();
+		Debug.Log (String.Format ("Saving player {0} ship", message.player.Username));
+		if (storage.ChangePlayerShip(message.player, message.ship)) {
+			msg.conn.SendByChannel((short)MessageTypes.PLAYER_SHIP_CHANGED, new PlayerShipChangedMessage(), 0);
+		}
+		else {
+			msg.conn.SendByChannel ((short)MessageTypes.PLAYER_SHIP_NOT_CHANGED, new PlayerShipNotChangedMessage(), 0);
+		}
+	}
+
+	public void OnRequestPlayerShip(NetworkMessage msg) {
+		var message = msg.ReadMessage<RequestPlayerShipMessage>();
+		Debug.Log (String.Format ("Requesting player {0} ship", message.player.Username));
+		var ship = storage.FindPlayerShip(message.player);
+		if (ship != null) {
+			msg.conn.SendByChannel((short)MessageTypes.PLAYER_SHIP, new PlayerShipMessage(ship, message.player), 0);
+		}
+		else {
+			msg.conn.SendByChannel((short)MessageTypes.PLAYER_SHIP_NOT_FOUND, new PlayerShipNotFoundMessage(message.player), 0);
 		}
 	}
 }

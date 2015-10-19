@@ -2,9 +2,9 @@ Mono path[0] = 'C:/Users/Liam/workspace/green/green/Builds/player-data-server_Da
 Mono path[1] = 'C:/Users/Liam/workspace/green/green/Builds/player-data-server_Data/Mono'
 Mono config path = 'C:/Users/Liam/workspace/green/green/Builds/player-data-server_Data/Mono/etc'
 PlayerConnection initialized from C:/Users/Liam/workspace/green/green/Builds/player-data-server_Data (debug = 0)
-PlayerConnection initialized network socket : 0.0.0.0 55339
-Multi-casting "[IP] 192.168.1.64 [Port] 55339 [Flags] 2 [Guid] 1353944389 [EditorId] 492673996 [Version] 1048832 [Id] WindowsPlayer(Zeus) [Debug] 0" to [225.0.0.222:54997]...
-PlayerConnection already initialized - listening to [192.168.1.64:55339]
+PlayerConnection initialized network socket : 0.0.0.0 55020
+Multi-casting "[IP] 192.168.1.64 [Port] 55020 [Flags] 2 [Guid] 4129590082 [EditorId] 2118494970 [Version] 1048832 [Id] WindowsPlayer(Zeus) [Debug] 0" to [225.0.0.222:54997]...
+PlayerConnection already initialized - listening to [192.168.1.64:55020]
 Initialize engine version: 5.1.1f1 (2046fc06d4d8)
 GfxDevice: creating device client; threaded=1
 Direct3D:
@@ -23,7 +23,7 @@ Platform assembly: C:\Users\Liam\workspace\green\green\Builds\player-data-server
 Loading C:\Users\Liam\workspace\green\green\Builds\player-data-server_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Liam\workspace\green\green\Builds\player-data-server_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
 Loading C:\Users\Liam\workspace\green\green\Builds\player-data-server_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.045 seconds
+- Completed reload, in  0.055 seconds
 desktop: 1920x1080 60Hz; virtual: 3840x1080 at -1920,0
 <RI> Initializing input.
 <RI> Input initialized.
@@ -33,9 +33,41 @@ Platform assembly: C:\Users\Liam\workspace\green\green\Builds\player-data-server
 Listening on port 7778
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-PlayerDataServer:Start() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\SceneServers\DataServers\PlayerDataServer\PlayerDataServer.cs:39)
+PlayerDataServer:Start() (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\SceneServers\DataServers\PlayerDataServer\PlayerDataServer.cs:41)
  
-(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/SceneServers/DataServers/PlayerDataServer/PlayerDataServer.cs Line: 39)
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/SceneServers/DataServers/PlayerDataServer/PlayerDataServer.cs Line: 41)
 
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 2dd4 -> priority: 1 
+  Thread -> id: 6888 -> priority: 1 
+Creating player asdf
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+PlayerDataServer:OnCreatePlayer(NetworkMessage) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\SceneServers\DataServers\PlayerDataServer\PlayerDataServer.cs:46)
+UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
+UnityEngine.Networking.NetworkServer:InternalUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:652)
+UnityEngine.Networking.NetworkServer:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:514)
+UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:706)
+ 
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/SceneServers/DataServers/PlayerDataServer/PlayerDataServer.cs Line: 46)
+
+Requesting player asdf ship
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+PlayerDataServer:OnRequestPlayerShip(NetworkMessage) (at C:\Users\Liam\workspace\green\green\Assets\Scripts\Server\SceneServers\DataServers\PlayerDataServer\PlayerDataServer.cs:91)
+UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:301)
+UnityEngine.Networking.NetworkServer:InternalUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:652)
+UnityEngine.Networking.NetworkServer:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:514)
+UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:706)
+ 
+(Filename: C:/Users/Liam/workspace/green/green/Assets/Scripts/Server/SceneServers/DataServers/PlayerDataServer/PlayerDataServer.cs Line: 91)
+
+Unknown message ID 12 connId:2
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:LogError(Object)
+UnityEngine.Networking.NetworkConnection:HandleMessage(Dictionary`2, NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:336)
+UnityEngine.Networking.NetworkServer:InternalUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:652)
+UnityEngine.Networking.NetworkServer:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:514)
+UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:706)
+ 
+(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkConnection.cs Line: 336)
+

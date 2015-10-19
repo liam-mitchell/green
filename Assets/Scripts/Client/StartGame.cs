@@ -21,7 +21,7 @@ public class StartGame : MonoBehaviour {
 			client.SetPlayer (player);
 
 			playerDataClient = new PlayerDataClient();
-			playerDataClient.RegisterHandlers(OnPlayerCreated, OnPlayerNotCreated, OnConnected);
+			playerDataClient.RegisterHandlers(OnPlayerCreated, OnPlayerNotCreated, OnConnected, NoOpHandler.Handle, NoOpHandler.Handle, NoOpHandler.Handle, NoOpHandler.Handle);
 			playerDataClient.Connect ();
 		}
 	}

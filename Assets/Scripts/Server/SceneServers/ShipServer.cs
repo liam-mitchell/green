@@ -10,7 +10,10 @@ using System;
  * Responsible for managing active player connections, spawning player objects on connection, etc.
  */
 public class ShipServer : SceneServer {
-	public GameObject shipPrefab;
+	public GameObject newPlayerPrefab;
+	public GameObject activePlayerPrefab;
+
+	private PlayerDataClient playerData;
 
 	/**
 	 * Metadata associated with a connected player.
@@ -25,6 +28,18 @@ public class ShipServer : SceneServer {
 			username = u;
 			ship = s;
 		}
+	}
+
+	private void RegisterHandlers() {
+		playerData.RegisterHandlers(
+			NoOpHandler.Handle,
+			NoOpHandler.Handle,
+			NoOpHandler.Handle,
+			NoOpHandler.Handle,
+			NoOpHandler.Handle,
+			OnPlayerShip,
+			OnPlayerShipNotFound
+		);
 	}
 
 	// Active player connections
@@ -57,6 +72,10 @@ public class ShipServer : SceneServer {
 		// Register OnSendPlayer as the handler for clients sending us player information once they connect
 		NetworkServer.RegisterHandler((short)MessageTypes.PLAYER, OnSendPlayer);
 		connections = new List<PlayerConnection>();
+
+		playerData = new PlayerDataClient();
+		RegisterHandlers();
+		playerData.Connect();
 	}
 
 	// Server-side callback after a player connects, with the connection of the new player
@@ -73,18 +92,52 @@ public class ShipServer : SceneServer {
 	// Message handler for SendPlayerMessages
 	// Creates the player's ship, and associates the player and ship with an active connection object
 	public void OnSendPlayer(NetworkMessage msg) {
+		// TODO
+		// Check if player is stored in PlayerDataServer
+		// If so, spawn their ship rather than creating a default one
 		var username = msg.ReadMessage<PlayerClient.SendPlayerMessage>().Username;
+		connections.Add (new PlayerConnection(msg.conn, username, null));
 		Debug.Log (String.Format ("OnSendPlayer: {0}", username));
 
+		playerData.RequestPlayerShip(new Player(username));
+	}
+
+	public void OnPlayerShip(NetworkMessage msg) {
+		var message = msg.ReadMessage<PlayerShipMessage>();
+		var ship = message.ship.Spawn();
+		Debug.Log (String.Format ("Player ship found for player {0}", message.player.Username));
+		AddPlayerShip(message.player, ship);
+	}
+
+	public void OnPlayerShipNotFound(NetworkMessage msg) {
+		var message = msg.ReadMessage<PlayerShipNotFoundMessage>();
+		Debug.Log (String.Format ("Player ship not found for player {0}", message.player.Username));
 		var ship = CreatePlayer();
+		//AddPlayerShip(message.player, ship);
 		NetworkServer.AddPlayerForConnection(msg.conn, ship, 0);
-		connections.Add (new PlayerConnection(msg.conn, username, ship));
+		FindPlayerConnection(message.player.Username).ship = ship;
+	}
+
+	private void AddPlayerShip(Player player, GameObject ship) {
+		var connection = connections.Find (c => c.username == player.Username);
+		if (connection != null) {
+			var p = (GameObject)GameObject.Instantiate(activePlayerPrefab);
+			ship.transform.parent = p.transform;
+			if (!NetworkServer.AddPlayerForConnection(connection.connection, p, 0)) {
+				Debug.Log ("Failed to add player...");
+			}
+			connection.ship = ship;
+			Debug.Log (String.Format("Added player ship for player {0}", player.Username));
+		}
+		else {
+			Debug.Log (String.Format("failed to add ship for player {0}", player.Username));
+		}
 	}
 
 	// Creates a ship, and adds the ship as the player for connection
 	private GameObject CreatePlayer() {
 		var pos = GetStartPosition();
-		var ship = (GameObject)GameObject.Instantiate(shipPrefab, pos.position, pos.rotation);
+		var ship = (GameObject)GameObject.Instantiate(newPlayerPrefab, pos.position, pos.rotation);
 		return ship;
 	}
 
