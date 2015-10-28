@@ -35,8 +35,9 @@ public class EditorPartsMenu : MonoBehaviour {
 		parts = new List<ClickablePart>();
 		ship = new Ship();
 
-		playerClient = GameObject.Find ("PlayerClient").GetComponent<PlayerClient>();
-		if (playerClient != null) {
+		var pc = GameObject.Find ("PlayerClient");
+		if (pc != null) {
+			playerClient = pc.GetComponent<PlayerClient>();
 			dataClient = new PlayerDataClient();
 			RegisterHandlers();
 			dataClient.Connect();

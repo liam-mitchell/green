@@ -6,6 +6,7 @@ using System;
 public class PlayerClient : MonoBehaviour {
 	public GameObject shipPrefab;
 	public GameObject playerPrefab;
+	public GameObject cameraPrefab;
 
 	public class SendPlayerMessage : MessageBase {
 		private Player player;
@@ -41,6 +42,8 @@ public class PlayerClient : MonoBehaviour {
 		client = new NetworkClient();
 		client.RegisterHandler((short)MessageTypes.REQ_PLAYER, OnRequestPlayer);
 		client.RegisterHandler((short)MessageTypes.CHANGE_SCENE, OnChangeScene);
+		client.RegisterHandler((short)MessageTypes.PLAYER_SHIP_SPAWNED, OnShipSpawned);
+		client.Configure(ConnectionConfiguration.GetConfiguration(), 5);
 		GameObject.DontDestroyOnLoad(gameObject);
 	}
 
@@ -55,7 +58,7 @@ public class PlayerClient : MonoBehaviour {
 
 		ServerData server = ServerInfo.GetHost(scene);
 		if (server != null) {
-			client.Connect (server.host, server.port);
+			client.Connect(server.host, server.port);
 		}
 	}
 
@@ -73,6 +76,20 @@ public class PlayerClient : MonoBehaviour {
 		var scene = msg.ReadMessage<ChangeSceneMessage>().scene;
 		Debug.Log (String.Format ("Changing scene: {0}", scene));
 		ConnectToScene(scene);
+	}
+
+	public void OnShipSpawned(NetworkMessage msg) {
+		Debug.Log ("Spawning ship");
+		var message = msg.ReadMessage<ShipSpawnedMessage>();
+		//var parent = GameObject.Find(message.name);
+		Debug.Log (String.Format ("Finding ship with instance ID {0}", message.id));
+		var parent = ClientScene.FindLocalObject(new NetworkInstanceId(message.id));
+		var cam = (GameObject)GameObject.Instantiate(cameraPrefab);
+		var ship = message.ship.Spawn ();
+		Debug.Log (String.Format ("Adding ship {0} and player {1} to parent {2}", ship, player, parent));
+		ship.transform.SetParent(parent.transform);
+		cam.transform.SetParent(parent.transform);
+		Debug.Log ("Spawned ship");
 	}
 
 	private void Disconnect() {

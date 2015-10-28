@@ -13,6 +13,7 @@ public class SceneInitialization : MonoBehaviour {
 	}
 
 	public void StartServer() {
+		NetworkServer.Configure(ConnectionConfiguration.GetConfiguration(), 5);
 		if (!GetComponent<NetworkManager>().StartServer ()) {
 			Debug.Log("Unable to start server!");
 		}

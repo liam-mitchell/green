@@ -5,6 +5,11 @@ using System.Collections.Generic;
 using System;
 
 public class Ship {
+	public class ShipSpawningException : Exception {
+		public ShipSpawningException(string message) : base(message) {}
+		public ShipSpawningException() : base() {}
+	}
+
 	public List<ShipPart> parts;
 	public Vector3 position;
 
@@ -43,14 +48,38 @@ public class Ship {
 	}
 
 	public GameObject Spawn() {
-		var ship = new GameObject("Ship");
-		ship.transform.position = position;
+		var ship = SpawnShip();
+		AddParts(ship);
+		return ship;
+	}
 
+	public GameObject Spawn(string name) {
+		var ship = SpawnShip(name);
+		AddParts(ship);
+		return ship;
+	}
+
+	private GameObject SpawnShip() {
+		return Spawner().Spawn();
+	}
+
+	private GameObject SpawnShip(string name) {
+		return Spawner().Spawn(name);
+	}
+
+	private void AddParts(GameObject ship) {
 		foreach (var part in parts) {
 			var obj = part.Spawn();
-			obj.transform.parent = ship.transform;
+			obj.transform.SetParent(ship.transform);
+		}
+	}
+
+	private ShipSpawner Spawner() {
+		var spawner = GameObject.Find("ShipSpawner").GetComponent<ShipSpawner>();
+		if (spawner == null) {
+			throw new ShipSpawningException("Unable to find ShipSpawner!");
 		}
 
-		return ship;
+		return spawner;
 	}
 }

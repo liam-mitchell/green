@@ -46,7 +46,7 @@ public class ShipServer : SceneServer {
 	private List<PlayerConnection> connections;
 
 	public GameObject GetPlayerShip(Player p) {
-		var connection = FindPlayerConnection(p.Username);
+		var connection = FindPlayerConnection(p);
 		if (connection == null) {
 			return null;
 		}
@@ -55,7 +55,7 @@ public class ShipServer : SceneServer {
 	}
 
 	public NetworkConnection GetPlayerConnection(Player p) {
-		var connection = FindPlayerConnection(p.Username);
+		var connection = FindPlayerConnection(p);
 		if (connection == null) {
 			return null;
 		}
@@ -96,7 +96,16 @@ public class ShipServer : SceneServer {
 		// Check if player is stored in PlayerDataServer
 		// If so, spawn their ship rather than creating a default one
 		var username = msg.ReadMessage<PlayerClient.SendPlayerMessage>().Username;
-		connections.Add (new PlayerConnection(msg.conn, username, null));
+		var connection = FindPlayerConnection(new Player(username));
+		if (connection == null) {
+			Debug.Log ("No connection found");
+			connections.Add (new PlayerConnection(msg.conn, username, null));
+		}
+		else {
+			Debug.Log ("Connection found");
+			connection.connection = msg.conn;
+		}
+
 		Debug.Log (String.Format ("OnSendPlayer: {0}", username));
 
 		playerData.RequestPlayerShip(new Player(username));
@@ -104,9 +113,12 @@ public class ShipServer : SceneServer {
 
 	public void OnPlayerShip(NetworkMessage msg) {
 		var message = msg.ReadMessage<PlayerShipMessage>();
-		var ship = message.ship.Spawn();
-		Debug.Log (String.Format ("Player ship found for player {0}", message.player.Username));
+		var ship = message.ship.Spawn(message.player.Username);
 		AddPlayerShip(message.player, ship);
+		var connection = FindPlayerConnection(message.player);
+		var id = connection.ship.transform.parent.GetComponent<NetworkIdentity>().netId.Value;
+		Debug.Log (String.Format ("Player ship found for player {0}", message.player.Username));
+		connection.connection.SendByChannel((short)MessageTypes.PLAYER_SHIP_SPAWNED, new ShipSpawnedMessage(id, message.ship), 0);
 	}
 
 	public void OnPlayerShipNotFound(NetworkMessage msg) {
@@ -114,18 +126,20 @@ public class ShipServer : SceneServer {
 		Debug.Log (String.Format ("Player ship not found for player {0}", message.player.Username));
 		var ship = CreatePlayer();
 		//AddPlayerShip(message.player, ship);
-		NetworkServer.AddPlayerForConnection(msg.conn, ship, 0);
-		FindPlayerConnection(message.player.Username).ship = ship;
+
+		var connection = FindPlayerConnection(message.player);
+		connection.ship = ship;
+		NetworkServer.AddPlayerForConnection(connection.connection, ship, 0);
 	}
 
 	private void AddPlayerShip(Player player, GameObject ship) {
-		var connection = connections.Find (c => c.username == player.Username);
+		var connection = FindPlayerConnection(player);
 		if (connection != null) {
 			var p = (GameObject)GameObject.Instantiate(activePlayerPrefab);
-			ship.transform.parent = p.transform;
 			if (!NetworkServer.AddPlayerForConnection(connection.connection, p, 0)) {
 				Debug.Log ("Failed to add player...");
 			}
+			ship.transform.parent = p.transform;
 			connection.ship = ship;
 			Debug.Log (String.Format("Added player ship for player {0}", player.Username));
 		}
@@ -141,7 +155,10 @@ public class ShipServer : SceneServer {
 		return ship;
 	}
 
-	private PlayerConnection FindPlayerConnection(string username) {
-		return connections.Find (c => c.username == username);
+	private PlayerConnection FindPlayerConnection(Player p) {
+		var conn = connections.Find (c => c.username == p.Username);
+		if (p != null && conn != null)
+			Debug.Log (String.Format ("Found connection for {0}: {1}, {2}", p.Username, conn.connection, conn.ship));
+		return conn;
 	}
 }

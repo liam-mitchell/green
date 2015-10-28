@@ -2,5 +2,6 @@
 using System.Collections;
 
 public class ShipPartPrefab : MonoBehaviour {
-	public string partName;
+	public GameObject clientPrefab;
+	public GameObject serverPrefab;
 }

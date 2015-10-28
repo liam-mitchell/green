@@ -43,16 +43,21 @@ public class ShipPart {
 	}
 
 	public GameObject Spawn() {
-		var prefab = spawner.parts.Find (p => p.name == name);
+		var prefab = spawner.parts.Find (p => p.name == name).GetComponent<ShipPartPrefab>();
 		if (prefab == null) {
 			throw new PartSpawningException(String.Format("Unable to find part with name {0}", name));
 		}
 
-		part = (GameObject)GameObject.Instantiate(prefab, position, rotation);
+		if (NetworkServer.active) {
+			part = (GameObject)GameObject.Instantiate(prefab.serverPrefab, position, rotation);
+		}
+		else {
+			part = (GameObject)GameObject.Instantiate(prefab.clientPrefab, position, rotation);
+		}
+
 		return part;
 	}
 
-	// TODO
 	public void Serialize(NetworkWriter writer) {
 		if (part != null) {
 			position = part.transform.position;
