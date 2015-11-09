@@ -13,6 +13,8 @@ public class Ship {
 	public List<ShipPart> parts;
 	public Vector3 position;
 
+	private GameObject ship;
+
 	public bool AddPart(ShipPart part) {
 		parts.Add(part);
 		Debug.Log (String.Format("Adding part {0}", part));
@@ -29,8 +31,15 @@ public class Ship {
 		position = Vector3.zero;
 	}
 
+	public void Update() {
+		if (!NetworkServer.active) {
+			Debug.LogError("Tried to update a ship on the client!");
+			return;
+		}
+	}
+
 	public void Serialize(NetworkWriter writer) {
-		Debug.Log ("Serializing ship");
+		Debug.Log (String.Format ("Serializing ship with {0} parts", parts.Count));
 		writer.Write(parts.Count);
 		foreach (var part in parts) {
 			part.Serialize(writer);
@@ -38,23 +47,23 @@ public class Ship {
 	}
 
 	public void Deserialize(NetworkReader reader) {
-		Debug.Log ("Deserializing ship");
 		var count = reader.ReadInt32 ();
+		Debug.Log (String.Format ("Deserializing ship with {0} parts", count));
 		for (var i = 0; i < count; ++i) {
-			var part = new ShipPart();
-			part.Deserialize(reader);
+			Debug.Log ("Deserializing part");
+			var part = ShipPart.Deserialize(reader);
 			AddPart(part);
 		}
 	}
 
 	public GameObject Spawn() {
-		var ship = SpawnShip();
+		ship = SpawnShip();
 		AddParts(ship);
 		return ship;
 	}
 
 	public GameObject Spawn(string name) {
-		var ship = SpawnShip(name);
+		ship = SpawnShip(name);
 		AddParts(ship);
 		return ship;
 	}
@@ -69,8 +78,14 @@ public class Ship {
 
 	private void AddParts(GameObject ship) {
 		foreach (var part in parts) {
-			var obj = part.Spawn();
+			var obj = part.Spawn(this);
+			Debug.Log (String.Format ("adding part {0} to ship {1}", obj, ship));
 			obj.transform.SetParent(ship.transform);
+		}
+
+		if (NetworkServer.active) {
+			var updater = ship.AddComponent<ShipUpdater>();
+			updater.ship = this;
 		}
 	}
 

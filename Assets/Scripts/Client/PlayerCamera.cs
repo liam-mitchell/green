@@ -1,30 +1,24 @@
 ﻿using UnityEngine;
-using UnityEngine.Networking;
 using System.Collections;
 
-// PlayerCamera
-// Responsible for managing which objects are visible to the player and which are not.
-// Must attach to player at startup.
-public class PlayerCamera : MonoBehaviour {
-	public GameObject CameraPrefab;
+public class PlayerCamera : FocusCamera {
+	protected override Vector3 Target() {
+		return Vector3.zero;
+	}
 
-	private Camera cam;
-	private NetworkIdentity networkIdentity;
-	// Use this for initialization
-	void Start () {
-		networkIdentity = GetComponent<NetworkIdentity>();
-		if (networkIdentity.isLocalPlayer) {
-			Debug.Log("Local player found!");
-			cam = gameObject.AddComponent<Camera>();
-			cam.enabled = true;
-		}
+	protected override bool Pan() {
+		return true;
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		if (cam) {
-			cam.transform.position = transform.position;
-			cam.transform.rotation = transform.rotation;
-		}
+	protected override float Zoom() {
+		return Input.GetAxis ("Zoom");
+	}
+	
+	protected override float PanUp() {
+		return Input.GetAxis ("RotateUp");
+	}
+	
+	protected override float PanSide() {
+		return Input.GetAxis ("RotateSide");
 	}
 }

@@ -1,33 +1,31 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
 using System.Collections;
+using System.Collections.Generic;
 using System;
 
-public class ShipPart {
+public abstract class ShipPart {
 	public class PartSpawningException : Exception {
 		public PartSpawningException(string message) : base(message) {}
 		public PartSpawningException() : base() {}
 	}
-	
+
+	public delegate ShipPart Deserializer(NetworkReader reader);
+	private static Dictionary<string, Deserializer> deserializers;
+
 	public GameObject part;
 	public string name;
 
-	private ShipPartSpawner spawner;
+	public ShipPartSpawner spawner;
 
 	private Vector3 position;
 	private Quaternion rotation;
 
-	public ShipPart(string n) {
-		Initialize();
-
-		name = n;
-		position = Vector3.zero;
-		rotation = Quaternion.identity;
-	}
-
-	// For serialization
-	public ShipPart() {
-		Initialize();
+	static ShipPart() {
+		deserializers = new Dictionary<string, Deserializer>() {
+			{Cube.Name, Cube._Deserialize},
+			{Engine.Name, Engine._Deserialize}
+		};
 	}
 
 	private void Initialize() {
@@ -42,38 +40,22 @@ public class ShipPart {
 		return true; // this should probably... like... check a distance or something T.T
 	}
 
-	public GameObject Spawn() {
-		var prefab = spawner.parts.Find (p => p.name == name).GetComponent<ShipPartPrefab>();
-		if (prefab == null) {
-			throw new PartSpawningException(String.Format("Unable to find part with name {0}", name));
+	public GameObject Spawn(Ship ship) {
+		if (spawner == null) {
+			Initialize();
 		}
 
-		if (NetworkServer.active) {
-			part = (GameObject)GameObject.Instantiate(prefab.serverPrefab, position, rotation);
-		}
-		else {
-			part = (GameObject)GameObject.Instantiate(prefab.clientPrefab, position, rotation);
-		}
-
+		part = spawner.Spawn (name);
 		return part;
 	}
 
-	public void Serialize(NetworkWriter writer) {
-		if (part != null) {
-			position = part.transform.position;
-			rotation = part.transform.rotation;
-		}
+	public abstract void Serialize(NetworkWriter writer);
 
-		Debug.Log (String.Format ("Serializing part {0} at {1}, {2}", name, position, rotation));
-		writer.Write(name);
-		writer.Write(position);
-		writer.Write(rotation);
-	}
-
-	public void Deserialize(NetworkReader reader) {
-		name = reader.ReadString();
-		position = reader.ReadVector3();
-		rotation = reader.ReadQuaternion();
-		Debug.Log (String.Format ("Deserializing part {0} at {1}, {2}", name, position, rotation));
+	public static ShipPart Deserialize(NetworkReader reader) {
+		var name = reader.ReadString();
+		Debug.Log (String.Format ("Deserializing at index {0}, count {1}", name, deserializers.Count));
+		var part = deserializers[name](reader);
+		part.name = name;
+		return part;
 	}
 }

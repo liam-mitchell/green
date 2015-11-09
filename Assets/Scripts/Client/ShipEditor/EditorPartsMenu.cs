@@ -22,11 +22,11 @@ public class EditorPartsMenu : MonoBehaviour {
 
 	private class ClickablePart {
 		public GameObject obj;
-		public ShipPart part;
-		public ClickablePart(ShipPart p, GameObject o) {
-			part = p;
+		public string name;
+		public ClickablePart(string n, GameObject o) {
+			name = n;
 			obj = o;
-			Debug.Log (String.Format ("Created clickable part with name {0}", part.name));
+			Debug.Log (String.Format ("Created clickable part with name {0}", name));
 		}
 	}
 
@@ -91,8 +91,11 @@ public class EditorPartsMenu : MonoBehaviour {
 		var maxSize = (right - zero).magnitude;
 
 		for (int i = 0; i < partsShown && i < spawner.parts.Count; ++i, pos += step) {
-			var part = new ShipPart(spawner.parts[i].name);
-			var obj = part.Spawn ();
+//			var part = new ShipPart(spawner.parts[i].name);
+			var part = spawner.Create(spawner.parts[i].name);
+			var obj = part.part;
+
+			Debug.Log (String.Format ("Adding clickable part {0}", obj));
 
 			obj.transform.SetParent(menu.rectTransform.parent);
 			obj.layer |= (int)Layers.IGNORE_RAYCAST;
@@ -104,7 +107,7 @@ public class EditorPartsMenu : MonoBehaviour {
 			obj.transform.position = pos;
 			obj.transform.rotation = Quaternion.identity;
 
-			parts.Add (new ClickablePart(part, obj));
+			parts.Add (new ClickablePart(spawner.parts[i].name, obj));
 		}
 	}
 	
@@ -112,22 +115,24 @@ public class EditorPartsMenu : MonoBehaviour {
 	void Update () {
 		foreach (var clickable in parts) {
 			if (Cursor.ClickDown(clickable.obj)) {
-				Debug.Log (String.Format ("Clicked something: {0}", clickable.obj));
-				Debug.Log (String.Format ("part: {0}", clickable.part.name));
-
-				var shipPart = new ShipPart(clickable.part.name);
-				var newPart = shipPart.Spawn();
-
-				newPart.transform.localScale = Vector3.one;
-				newPart.transform.position = clickable.obj.transform.position;
-				newPart.transform.rotation = Quaternion.identity;
-
-				var editorPart = newPart.AddComponent<EditorPart>();
+				var part = spawner.Create (clickable.name);
+				var obj = part.part;
+//				Debug.Log (String.Format ("Clicked something: {0}", clickable.obj));
+//				Debug.Log (String.Format ("part: {0}", clickable.part.name));
+//
+//				var shipPart = new ShipPart(clickable.part.name);
+//				var newPart = shipPart.Spawn(ship);
+//
+				obj.transform.localScale = Vector3.one;
+				obj.transform.position = clickable.obj.transform.position;
+				obj.transform.rotation = Quaternion.identity;
+//
+				var editorPart = obj.AddComponent<EditorPart>();
 				editorPart.Activate();
 				editorPart.ship = ship;
-				editorPart.part = shipPart;
-
-				Debug.Log (String.Format ("Created editor part: {0}, ship: {1}, part: {2}", editorPart, ship, shipPart));
+				editorPart.part = part;
+//
+				Debug.Log (String.Format ("Created editor part: {0}, ship: {1}, part: {2}", editorPart, ship, part));
 			}
 		}
 

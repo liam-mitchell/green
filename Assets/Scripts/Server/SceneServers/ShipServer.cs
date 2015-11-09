@@ -92,9 +92,6 @@ public class ShipServer : SceneServer {
 	// Message handler for SendPlayerMessages
 	// Creates the player's ship, and associates the player and ship with an active connection object
 	public void OnSendPlayer(NetworkMessage msg) {
-		// TODO
-		// Check if player is stored in PlayerDataServer
-		// If so, spawn their ship rather than creating a default one
 		var username = msg.ReadMessage<PlayerClient.SendPlayerMessage>().Username;
 		var connection = FindPlayerConnection(new Player(username));
 		if (connection == null) {
@@ -157,8 +154,6 @@ public class ShipServer : SceneServer {
 
 	private PlayerConnection FindPlayerConnection(Player p) {
 		var conn = connections.Find (c => c.username == p.Username);
-		if (p != null && conn != null)
-			Debug.Log (String.Format ("Found connection for {0}: {1}, {2}", p.Username, conn.connection, conn.ship));
 		return conn;
 	}
 }
