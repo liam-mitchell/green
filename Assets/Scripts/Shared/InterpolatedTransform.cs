@@ -4,7 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-[NetworkSettings(channel = 0, sendInterval = 0.05f)]
+[NetworkSettings(channel = 1, sendInterval = 0.05f)]
 public class InterpolatedTransform : NetworkBehaviour {
 	private class SyncTransform {
 		public Vector3 position;
@@ -55,8 +55,8 @@ public class InterpolatedTransform : NetworkBehaviour {
 	}
 
 	public override bool OnSerialize(NetworkWriter writer, bool initial) {
-		writer.Write (transform.position);
-		writer.Write (transform.rotation);
+		writer.Write (transform.localPosition);
+		writer.Write (transform.localRotation);
 		return true;
 	}
 

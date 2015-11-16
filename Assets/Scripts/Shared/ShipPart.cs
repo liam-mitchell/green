@@ -18,8 +18,8 @@ public abstract class ShipPart {
 
 	public ShipPartSpawner spawner;
 
-	private Vector3 position;
-	private Quaternion rotation;
+	protected Vector3 position;
+	protected Quaternion rotation;
 
 	static ShipPart() {
 		deserializers = new Dictionary<string, Deserializer>() {
@@ -46,6 +46,10 @@ public abstract class ShipPart {
 		}
 
 		part = spawner.Spawn (name);
+		part.transform.SetParent(ship.gameObject.transform);
+		part.transform.localPosition = position;
+		part.transform.localRotation = rotation;
+		Attach(ship);
 		return part;
 	}
 
@@ -57,5 +61,16 @@ public abstract class ShipPart {
 		var part = deserializers[name](reader);
 		part.name = name;
 		return part;
+	}
+
+	public abstract int Mass();
+
+	protected abstract void Attach(Ship ship);
+
+	protected void Save() {
+		if (part != null) {
+			position = part.transform.localPosition;
+			rotation = part.transform.localRotation;
+		}
 	}
 }

@@ -86,12 +86,13 @@ public class PlayerClient : MonoBehaviour {
 
 		var parent = ClientScene.FindLocalObject(new NetworkInstanceId(message.id));
 		var cam = (GameObject)GameObject.Instantiate(cameraPrefab);
-		var ship = message.ship.Spawn ();
+		var ship = message.ship.Attach (parent);
 
 		Debug.Log (String.Format ("Adding ship {0} and player {1} to parent {2}", ship, player, parent));
 
-		ship.transform.SetParent(parent.transform);
+//		ship.transform.SetParent(parent.transform);
 		cam.transform.SetParent(parent.transform);
+		cam.GetComponent<PlayerCamera>().player = ship;
 
 		Debug.Log ("Spawned ship");
 	}

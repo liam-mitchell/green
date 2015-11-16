@@ -2,8 +2,15 @@
 using System.Collections;
 
 public class PlayerCamera : FocusCamera {
+	[HideInInspector]
+	public GameObject player;
+
 	protected override Vector3 Target() {
-		return Vector3.zero;
+		if (player == null) {
+			return Vector3.zero;
+		}
+
+		return player.transform.position;
 	}
 
 	protected override bool Pan() {

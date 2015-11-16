@@ -113,7 +113,7 @@ public class ShipServer : SceneServer {
 		var ship = message.ship.Spawn(message.player.Username);
 		AddPlayerShip(message.player, ship);
 		var connection = FindPlayerConnection(message.player);
-		var id = connection.ship.transform.parent.GetComponent<NetworkIdentity>().netId.Value;
+		var id = connection.ship.GetComponent<NetworkIdentity>().netId.Value;
 		Debug.Log (String.Format ("Player ship found for player {0}", message.player.Username));
 		connection.connection.SendByChannel((short)MessageTypes.PLAYER_SHIP_SPAWNED, new ShipSpawnedMessage(id, message.ship), 0);
 	}
@@ -132,11 +132,11 @@ public class ShipServer : SceneServer {
 	private void AddPlayerShip(Player player, GameObject ship) {
 		var connection = FindPlayerConnection(player);
 		if (connection != null) {
-			var p = (GameObject)GameObject.Instantiate(activePlayerPrefab);
-			if (!NetworkServer.AddPlayerForConnection(connection.connection, p, 0)) {
+//			var p = (GameObject)GameObject.Instantiate(activePlayerPrefab);
+			if (!NetworkServer.AddPlayerForConnection(connection.connection, ship, 0)) {
 				Debug.Log ("Failed to add player...");
 			}
-			ship.transform.parent = p.transform;
+//			ship.transform.parent = p.transform;
 			connection.ship = ship;
 			Debug.Log (String.Format("Added player ship for player {0}", player.Username));
 		}

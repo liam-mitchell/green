@@ -14,9 +14,17 @@ public class Ship {
 	public Vector3 position;
 
 	private GameObject ship;
+	public GameObject gameObject {get {return ship;}}
+
+	private float mass;
+	public float Mass {get {return mass;}}
+
+	public ShipEngines engines;
+	public ShipInputHandlers inputHandlers;
 
 	public bool AddPart(ShipPart part) {
 		parts.Add(part);
+		mass += part.Mass ();
 		Debug.Log (String.Format("Adding part {0}", part));
 		return true;
 	}
@@ -36,6 +44,9 @@ public class Ship {
 			Debug.LogError("Tried to update a ship on the client!");
 			return;
 		}
+
+		inputHandlers.Update();
+		engines.Update();
 	}
 
 	public void Serialize(NetworkWriter writer) {
@@ -58,14 +69,20 @@ public class Ship {
 
 	public GameObject Spawn() {
 		ship = SpawnShip();
-		AddParts(ship);
+		AddParts();
 		return ship;
 	}
 
 	public GameObject Spawn(string name) {
 		ship = SpawnShip(name);
-		AddParts(ship);
+		AddParts();
 		return ship;
+	}
+
+	public GameObject Attach(GameObject other) {
+		ship = other;
+		AddParts();
+		return other;
 	}
 
 	private GameObject SpawnShip() {
@@ -76,16 +93,18 @@ public class Ship {
 		return Spawner().Spawn(name);
 	}
 
-	private void AddParts(GameObject ship) {
-		foreach (var part in parts) {
-			var obj = part.Spawn(this);
-			Debug.Log (String.Format ("adding part {0} to ship {1}", obj, ship));
-			obj.transform.SetParent(ship.transform);
-		}
-
+	private void AddParts() {
 		if (NetworkServer.active) {
+			engines = new ShipEngines(this);
+			inputHandlers = new ShipInputHandlers(ship.GetComponent<PlayerInput>());
 			var updater = ship.AddComponent<ShipUpdater>();
 			updater.ship = this;
+		}
+
+		foreach (var part in parts) {
+			var obj = part.Spawn(this);
+			Debug.Log (String.Format ("adding obj {0} to ship {1} (part {2})", obj, ship, part));
+//			obj.transform.SetParent(ship.transform);
 		}
 	}
 
