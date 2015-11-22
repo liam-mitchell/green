@@ -6,15 +6,13 @@ using System;
 public class Builds : MonoBehaviour {
 	[MenuItem("Builds/Region Server")]
 	private static void BuildServer() {
-		var scene = EditorApplication.currentScene;
 		SetServerEnabled(true);
 		BuildPipeline.BuildPlayer(new string[]{"Assets/Scenes/Region.unity"}, "Builds/RegionServer.exe", BuildTarget.StandaloneWindows, BuildOptions.Development);
 		SetServerEnabled(false);
-		SwitchToScene(scene);
 	}
 	
 	private static void SetServerEnabled(bool enabled) {
-		var scene = SwitchToScene("Assets/Scenes/RegionServer.unity");
+		var scene = SwitchToScene("Assets/Scenes/Region.unity");
 
 		var init = GameObject.Find ("ShipServer").GetComponent<SceneInitialization>();
 		init.server = enabled;
@@ -34,10 +32,11 @@ public class Builds : MonoBehaviour {
 	}
 
 	private static string SwitchToScene(string scene) {
-		var curr = EditorApplication.currentScene;
+		var curr = (string)EditorApplication.currentScene.Clone();
 		if (curr != scene) {
+			Debug.Log (String.Format ("Switching to scene {0}", scene));
 			EditorApplication.SaveCurrentSceneIfUserWantsTo();
-			EditorApplication.OpenScene("Assets/Scenes/Region.unity");
+			EditorApplication.OpenScene(scene);
 		}
 
 		return curr;
