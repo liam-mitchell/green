@@ -31,11 +31,19 @@ public class EditorPart : MonoBehaviour {
 	public void Activate() {
 		activePart = this;
 		MovePartToMouse();
+
+		if (ship != null) {
+			ship.RemovePart(part);
+		}
 	}
 
 	public void Deactivate() {
 		if (activePart == this) {
 			activePart = null;
+		}
+
+		if (ship != null) {
+			ship.AddPart (part);
 		}
 	}
 
@@ -84,7 +92,6 @@ public class EditorPart : MonoBehaviour {
 		}
 		else if (Cursor.ClickUp (gameObject)) {
 			Debug.Log (String.Format ("Adding part {0} to ship {1}", part, ship));
-			ship.AddPart (part);
 			Deactivate();
 		}
 	}

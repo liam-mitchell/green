@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.Networking;
 using System.Collections;
 using System;
@@ -8,6 +9,8 @@ public class PlayerClient : MonoBehaviour {
 	public GameObject playerPrefab;
 	public GameObject cameraPrefab;
 
+	// TODO This should be a separate message class, inheriting from PlayerMessage...
+	// and not using this weird ass byte encoding thing (since we can write strings...)
 	public class SendPlayerMessage : MessageBase {
 		private Player player;
 
@@ -39,6 +42,8 @@ public class PlayerClient : MonoBehaviour {
 	public NetworkClient Client {get {return client;}}
 
 	void Awake() {
+		Assert.raiseExceptions = true;
+
 		client = new NetworkClient();
 		client.RegisterHandler((short)MessageTypes.REQ_PLAYER, OnRequestPlayer);
 		client.RegisterHandler((short)MessageTypes.CHANGE_SCENE, OnChangeScene);
@@ -53,7 +58,7 @@ public class PlayerClient : MonoBehaviour {
 
 	public void ConnectToScene(string scene) {
 		Disconnect();
-		Debug.Log (String.Format ("Connecting to scene: {0}", scene));
+		// Debug.Log (String.Format ("Connecting to scene: {0}", scene));
 		Application.LoadLevel (scene);
 
 		ServerData server = ServerInfo.GetHost(scene);
@@ -64,37 +69,36 @@ public class PlayerClient : MonoBehaviour {
 
 	public void OnRequestPlayer(NetworkMessage msg) {
 		msg.conn.SendByChannel ((short)MessageTypes.PLAYER, new SendPlayerMessage(player), 0);
-		Debug.Log (String.Format("OnRequestPlayer"));
+		// Debug.Log (String.Format("OnRequestPlayer"));
 		ClientScene.RegisterPrefab(shipPrefab);
 		ClientScene.RegisterPrefab(playerPrefab);
 		ClientScene.Ready (msg.conn);
 		ClientScene.AddPlayer(0);
-		Debug.Log ("Client scene ready!");
+		// Debug.Log ("Client scene ready!");
 	}
 
 	public void OnChangeScene(NetworkMessage msg) {
 		var scene = msg.ReadMessage<ChangeSceneMessage>().scene;
-		Debug.Log (String.Format ("Changing scene: {0}", scene));
+		// Debug.Log (String.Format ("Changing scene: {0}", scene));
 		ConnectToScene(scene);
 	}
 
 	public void OnShipSpawned(NetworkMessage msg) {
-		Debug.Log ("Spawning ship");
+		// Debug.Log ("Spawning ship");
 		var message = msg.ReadMessage<ShipSpawnedMessage>();
-		//var parent = GameObject.Find(message.name);
-		Debug.Log (String.Format ("Finding ship with instance ID {0}", message.id));
+		// Debug.Log (String.Format ("Finding ship with instance ID {0}", message.id));
 
 		var parent = ClientScene.FindLocalObject(new NetworkInstanceId(message.id));
-		var cam = (GameObject)GameObject.Instantiate(cameraPrefab);
 		var ship = message.ship.Attach (parent);
+		if (parent.GetComponent<NetworkIdentity>().isLocalPlayer) {
+			var cam = (GameObject)GameObject.Instantiate(cameraPrefab);
+			cam.transform.SetParent(parent.transform);
+			cam.GetComponent<PlayerCamera>().player = ship;
+			cam.GetComponentInChildren<ShipStatsDisplay>().ship = message.ship;
+			cam.GetComponentInChildren<ShipActiveStatsDisplay>().ship = message.ship;
+		}
 
-		Debug.Log (String.Format ("Adding ship {0} and player {1} to parent {2}", ship, player, parent));
-
-//		ship.transform.SetParent(parent.transform);
-		cam.transform.SetParent(parent.transform);
-		cam.GetComponent<PlayerCamera>().player = ship;
-
-		Debug.Log ("Spawned ship");
+		// Debug.Log ("Spawned ship");
 	}
 
 	private void Disconnect() {

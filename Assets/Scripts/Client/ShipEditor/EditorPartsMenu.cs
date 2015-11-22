@@ -14,9 +14,9 @@ public class EditorPartsMenu : MonoBehaviour {
 	public int partSpacing;
 
 	public ShipPartSpawner spawner;
+	public EditorShip editorShip;
 
 	private List<ClickablePart> parts;
-	private Ship ship;
 	private PlayerDataClient dataClient;
 	private PlayerClient playerClient;
 
@@ -33,7 +33,6 @@ public class EditorPartsMenu : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		parts = new List<ClickablePart>();
-		ship = new Ship();
 
 		var pc = GameObject.Find ("PlayerClient");
 		if (pc != null) {
@@ -60,7 +59,7 @@ public class EditorPartsMenu : MonoBehaviour {
 
 	private void SaveShip() {
 		if (dataClient.Client.isConnected) {
-			dataClient.ChangePlayerShip(playerClient.player, ship);
+			dataClient.ChangePlayerShip(playerClient.player, editorShip.ship);
 			Debug.Log ("Saved player ship");
 		}
 		else {
@@ -129,10 +128,10 @@ public class EditorPartsMenu : MonoBehaviour {
 //
 				var editorPart = obj.AddComponent<EditorPart>();
 				editorPart.Activate();
-				editorPart.ship = ship;
+				editorPart.ship = editorShip.ship;
 				editorPart.part = part;
 //
-				Debug.Log (String.Format ("Created editor part: {0}, ship: {1}, part: {2}", editorPart, ship, part));
+				Debug.Log (String.Format ("Created editor part: {0}, ship: {1}, part: {2}", editorPart, editorPart.ship, part));
 			}
 		}
 

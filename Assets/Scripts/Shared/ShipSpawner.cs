@@ -7,7 +7,7 @@ using System.Collections.Generic;
 public class ShipSpawner : MonoBehaviour {
 	public GameObject ship;
 	public GameObject cam;
-	public List<GameObject> components;
+	public List<GameObject> localComponents;
 
 	public GameObject Spawn() {
 		ClientScene.RegisterPrefab(ship);
@@ -29,8 +29,8 @@ public class ShipSpawner : MonoBehaviour {
 	}
 
 	public void AddComponents(GameObject s) {
-//		var c = (GameObject)GameObject.Instantiate(cam);
-//		c.transform.SetParent(s.transform);
-//		c.GetComponent<PlayerCamera>().player = s;
+		var c = (GameObject)GameObject.Instantiate(cam);
+		c.transform.SetParent(s.transform);
+		c.GetComponent<PlayerCamera>().player = s;
 	}
 }

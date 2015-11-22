@@ -65,7 +65,8 @@ public abstract class ShipPart {
 
 	public abstract int Mass();
 
-	protected abstract void Attach(Ship ship);
+	public abstract void Attach(Ship ship);
+	public abstract void Detach(Ship ship);
 
 	protected void Save() {
 		if (part != null) {

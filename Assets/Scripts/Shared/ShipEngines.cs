@@ -4,33 +4,29 @@ using System;
 
 public class ShipEngines {
 	private Ship ship;
-//	private int kilogramMetersPerSecond;
 	private float velocityPerKilogram;
 	private float accelerationPerKilogram;
 
 	private float velocity;
+
+	public float MaxVelocity {get {return velocityPerKilogram / ship.Mass;}}
+	public float MaxAcceleration {get {return accelerationPerKilogram / ship.Mass;}}
+	public float Velocity {get {return velocity;}}
 
 	public ShipEngines(Ship s) {
 		ship = s;
 		velocityPerKilogram = 0;
 		accelerationPerKilogram = 0;
 		velocity = 0;
-		// TODO register handler for motion inputs
 	}
 
-	public void Update() {
-		var aship = accelerationPerKilogram / ship.Mass;
-		var fship = ship.Mass * aship;
-
-		var vmax = velocityPerKilogram / ship.Mass;
-		var fdrag = fship * velocity / vmax;
-
-		var f = fship - fdrag;
-		var a = f / ship.Mass;
-		velocity += a * Time.deltaTime;
-
+	public void UpdateServer() {
+		Accelerate();
 		ship.gameObject.transform.position += ship.gameObject.transform.forward * velocity * Time.deltaTime;
-		Debug.Log (String.Format("Updated ship engines: velocity {0}, a {1}, f {2}, pos {3}, ship mass {4}, vmax {5}", velocity, a, f, ship.gameObject.transform.position, ship.Mass, vmax));
+	}
+
+	public void UpdateClient() {
+		Accelerate(); // just update velocity for display, don't actually move - the server does that
 	}
 
 	public void AddEngine(Engine engine) {
@@ -42,5 +38,18 @@ public class ShipEngines {
 	public void RemoveEngine(Engine engine) {
 		velocityPerKilogram -= engine.velocityPerKilogram;
 		accelerationPerKilogram -= engine.accelerationPerKilogram;
+	}
+
+	private void Accelerate() {
+		var aship = accelerationPerKilogram / ship.Mass * ship.input.state.accelerate;
+		var fship = ship.Mass * aship;
+		
+		var vmax = velocityPerKilogram / ship.Mass;
+		var fdrag = fship * velocity / vmax * ship.input.state.accelerate;
+		
+		var f = fship - fdrag;
+		var a = f / ship.Mass;
+		velocity += a * Time.deltaTime;
+		Debug.Log (String.Format("Updated ship engines: velocity {0}, a {1}, f {2}, pos {3}, ship mass {4}, vmax {5}, accelerate {6}", velocity, a, f, ship.gameObject.transform.position, ship.Mass, vmax, ship.input.state.accelerate));
 	}
 }

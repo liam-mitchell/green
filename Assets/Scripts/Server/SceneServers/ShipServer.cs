@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.Networking;
 using System.Collections;
 using System.Collections.Generic;
@@ -66,6 +67,7 @@ public class ShipServer : SceneServer {
 	// Server-side callback immediately after NetworkManager.StartServer is called
 	public override void OnStartServer() {
 		Debug.Log ("Server started");
+		Assert.raiseExceptions = true;
 
 		GameObject.DontDestroyOnLoad(gameObject);
 

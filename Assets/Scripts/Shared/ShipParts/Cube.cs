@@ -35,5 +35,6 @@ public class Cube : ShipPart {
 		return 1000;
 	}
 
-	protected override void Attach(Ship ship) {}
+	public override void Attach(Ship ship) {}
+	public override void Detach(Ship ship) {}
 }

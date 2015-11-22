@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.Networking;
 using System.Collections;
 using System.Collections.Generic;
@@ -20,33 +21,37 @@ public class Ship {
 	public float Mass {get {return mass;}}
 
 	public ShipEngines engines;
-	public ShipInputHandlers inputHandlers;
+	public PlayerInput input;
 
 	public bool AddPart(ShipPart part) {
 		parts.Add(part);
 		mass += part.Mass ();
 		Debug.Log (String.Format("Adding part {0}", part));
+		part.Attach(this);
 		return true;
 	}
 
 	public void RemovePart(ShipPart part) {
 		Debug.Log (String.Format("Removing part {0}", part));
 		parts.Remove(part);
+		mass -= part.Mass ();
+		part.Detach(this);
 	}
 
 	public Ship() {
 		parts = new List<ShipPart>();
 		position = Vector3.zero;
+		engines = new ShipEngines(this);
 	}
 
-	public void Update() {
-		if (!NetworkServer.active) {
-			Debug.LogError("Tried to update a ship on the client!");
-			return;
-		}
+	public void UpdateServer() {
+		Assert.IsTrue(NetworkServer.active, "Tried to call server ship update on client");
+		engines.UpdateServer();
+	}
 
-		inputHandlers.Update();
-		engines.Update();
+	public void UpdateClient() {
+		Assert.IsTrue (!NetworkServer.active, "Tried to call client ship update on server");
+		engines.UpdateClient();
 	}
 
 	public void Serialize(NetworkWriter writer) {
@@ -69,19 +74,19 @@ public class Ship {
 
 	public GameObject Spawn() {
 		ship = SpawnShip();
-		AddParts();
+		SpawnParts();
 		return ship;
 	}
 
 	public GameObject Spawn(string name) {
 		ship = SpawnShip(name);
-		AddParts();
+		SpawnParts();
 		return ship;
 	}
 
 	public GameObject Attach(GameObject other) {
 		ship = other;
-		AddParts();
+		SpawnParts();
 		return other;
 	}
 
@@ -93,18 +98,14 @@ public class Ship {
 		return Spawner().Spawn(name);
 	}
 
-	private void AddParts() {
-		if (NetworkServer.active) {
-			engines = new ShipEngines(this);
-			inputHandlers = new ShipInputHandlers(ship.GetComponent<PlayerInput>());
-			var updater = ship.AddComponent<ShipUpdater>();
-			updater.ship = this;
-		}
+	private void SpawnParts() {
+		input = ship.GetComponent<PlayerInput>();
+		var updater = ship.AddComponent<ShipUpdater>();
+		updater.ship = this;
 
 		foreach (var part in parts) {
 			var obj = part.Spawn(this);
 			Debug.Log (String.Format ("adding obj {0} to ship {1} (part {2})", obj, ship, part));
-//			obj.transform.SetParent(ship.transform);
 		}
 	}
 

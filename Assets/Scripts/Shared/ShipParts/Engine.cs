@@ -41,10 +41,15 @@ public class Engine : ShipPart {
 		return 1000;
 	}
 
-	protected override void Attach(Ship ship) {
-		if (NetworkServer.active) {
-			ship.engines.AddEngine(this);
-		}
+	public override void Attach(Ship ship) {
+//		if (NetworkServer.active) {
+//			ship.engines.AddEngine(this);
+//		}
+		ship.engines.AddEngine(this);
+	}
+
+	public override void Detach(Ship ship) {
+		ship.engines.RemoveEngine(this);
 	}
 
 //	public Vector3 Force() {
