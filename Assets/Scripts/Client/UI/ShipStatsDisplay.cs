@@ -9,7 +9,12 @@ public class ShipStatsDisplay : MonoBehaviour {
 	public Text mass;
 
 	public Ship ship;
-	
+
+	void Start() {
+		// TODO Find a better way to organize these without manually editing the positions of everything
+		gameObject.transform.localPosition = new Vector3(-(Screen.width / 2) + 100, (Screen.height / 2) - 80);
+	}
+
 	void OnGUI() {
 		if (ship != null) {
 			maxVelocity.text = String.Format("Max velocity: {0}", ship.engines.MaxVelocity);
