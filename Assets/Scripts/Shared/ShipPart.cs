@@ -1,77 +1,74 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
+using SimpleJSON;
 using System.Collections;
 using System.Collections.Generic;
 using System;
 
-public abstract class ShipPart {
-	public class PartSpawningException : Exception {
-		public PartSpawningException(string message) : base(message) {}
-		public PartSpawningException() : base() {}
-	}
+public abstract class ShipPart : MonoBehaviour {
+	public delegate ShipPart Deserializer(GameObject obj);
+	private static Dictionary<string, Deserializer> deserializers = new Dictionary<string, Deserializer>() {
+		{Cube.id, (obj) => obj.AddComponent<Cube>()},
+		{Engine.id, (obj) => obj.AddComponent<Engine>()},
+//		{Weapon.Name, (obj) => obj.AddComponent<Weapon>()},
+	};
 
-	public delegate ShipPart Deserializer(NetworkReader reader);
-	private static Dictionary<string, Deserializer> deserializers;
+	// TODO these are null after serialization, we need them to not be for spawning...
+	public GameObject clientPrefab;
+	public GameObject serverPrefab;
 
+	[HideInInspector]
 	public GameObject part;
-	public string name;
 
-	public ShipPartSpawner spawner;
+	public abstract string ID();
 
 	protected Vector3 position;
 	protected Quaternion rotation;
-
-	static ShipPart() {
-		deserializers = new Dictionary<string, Deserializer>() {
-			{Cube.Name, Cube._Deserialize},
-			{Engine.Name, Engine._Deserialize}
-		};
-	}
-
-	private void Initialize() {
-		spawner = GameObject.Find ("ShipPartSpawner").GetComponent<ShipPartSpawner>();
-
-		if (spawner == null) {
-			throw new PartSpawningException("Unable to find ShipPartSpawner");
-		}
-	}
 
 	public bool Lock(Ship ship) {
 		return true; // this should probably... like... check a distance or something T.T
 	}
 
 	public GameObject Spawn(Ship ship) {
-		if (spawner == null) {
-			Initialize();
+		Debug.Log (String.Format ("Spawning part for {0}: {1}, {2}", this, clientPrefab, serverPrefab));
+		if (!NetworkServer.active) {
+			part = (GameObject)GameObject.Instantiate(clientPrefab);
+		}
+		else {
+			part = (GameObject)GameObject.Instantiate(serverPrefab);
 		}
 
-		part = spawner.Spawn (name);
-		part.transform.SetParent(ship.gameObject.transform);
-		part.transform.localPosition = position;
-		part.transform.localRotation = rotation;
+		part.transform.SetParent(ship.transform);
 		Attach(ship);
 		return part;
 	}
 
-	public abstract void Serialize(NetworkWriter writer);
+	public static ShipPart Deserialize(GameObject obj, ShipMessage msg) {
+		var json = msg.NextPart();
+		if (json == null) {
+			return null;
+		}
 
-	public static ShipPart Deserialize(NetworkReader reader) {
-		var name = reader.ReadString();
-		Debug.Log (String.Format ("Deserializing at index {0}, count {1}", name, deserializers.Count));
-		var part = deserializers[name](reader);
-		part.name = name;
+		Debug.Log(String.Format ("Deserializing part id {0}: {1}", json["id"].Value, json.ToString()));
+		var part = deserializers[json["id"].Value](obj);
+		Debug.Log (String.Format ("Deserializing part: {0}", json.ToString ()));
+		part.FromJSON (json["data"].AsObject);
 		return part;
 	}
 
+	public void Serialize(ShipMessage msg) {
+		var json = new JSONClass();
+		json["id"] = ID();
+		json["data"] = ToJSON();
+		Debug.Log (String.Format ("Serializing part: {0}", json.ToString ()));
+		msg.AddPart (json);
+	}
+	
 	public abstract int Mass();
 
 	public abstract void Attach(Ship ship);
 	public abstract void Detach(Ship ship);
 
-	protected void Save() {
-		if (part != null) {
-			position = part.transform.localPosition;
-			rotation = part.transform.localRotation;
-		}
-	}
+	public abstract JSONClass ToJSON();
+	public abstract void FromJSON(JSONClass json);
 }

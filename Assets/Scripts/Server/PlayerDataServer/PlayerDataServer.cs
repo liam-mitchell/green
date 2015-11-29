@@ -77,8 +77,9 @@ public class PlayerDataServer : MonoBehaviour {
 
 	public void OnChangePlayerShip(NetworkMessage msg) {
 		var message = msg.ReadMessage<ChangePlayerShipMessage>();
-		Debug.Log (String.Format ("Saving player {0} ship", message.player.Username));
-		if (storage.ChangePlayerShip(message.player, message.ship)) {
+		Debug.Log (String.Format ("Saving player {0} ship: {1}", message.player.Username, message.JSON.ToString ()));
+
+		if (storage.ChangePlayerShip(message.player, message.JSON)) {
 			msg.conn.SendByChannel((short)MessageTypes.PLAYER_SHIP_CHANGED, new PlayerShipChangedMessage(), 0);
 		}
 		else {
@@ -90,8 +91,9 @@ public class PlayerDataServer : MonoBehaviour {
 		var message = msg.ReadMessage<RequestPlayerShipMessage>();
 		Debug.Log (String.Format ("Requesting player {0} ship", message.player.Username));
 		var ship = storage.FindPlayerShip(message.player);
+
 		if (ship != null) {
-			msg.conn.SendByChannel((short)MessageTypes.PLAYER_SHIP, new PlayerShipMessage(ship, message.player), 0);
+			msg.conn.SendByChannel((short)MessageTypes.PLAYER_SHIP, new PlayerShipMessage(message.player, ship), 0);
 		}
 		else {
 			msg.conn.SendByChannel((short)MessageTypes.PLAYER_SHIP_NOT_FOUND, new PlayerShipNotFoundMessage(message.player), 0);

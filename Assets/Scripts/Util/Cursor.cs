@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class Cursor {
 	public static bool OnScreen() {
@@ -9,7 +10,7 @@ public class Cursor {
 
 	public static bool HoveringOn(GameObject obj) {
 		var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-		var collider = obj.GetComponent<Collider>();
+		var collider = obj.GetComponentInChildren<Collider>();
 		if (collider == null) {
 			return false;
 		}
@@ -23,6 +24,7 @@ public class Cursor {
 	}
 
 	public static bool ClickDown(GameObject obj) {
+//		Debug.Log (String.Format("Checking click down on obj {0}: mouse button {1}, hovering {2}", obj, Input.GetMouseButtonDown(0), HoveringOn(obj)));
 		return Input.GetMouseButtonDown(0) && HoveringOn(obj);
 	}
 

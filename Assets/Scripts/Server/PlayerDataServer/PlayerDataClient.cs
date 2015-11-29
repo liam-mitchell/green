@@ -44,7 +44,10 @@ public class PlayerDataClient {
 	}
 
 	public void ChangePlayerShip(Player player, Ship ship) {
-		if (!client.SendByChannel((short)MessageTypes.CHANGE_PLAYER_SHIP, new ChangePlayerShipMessage(ship, player), 0)) {
+		var message = new ChangePlayerShipMessage(player);
+		ship.Serialize(message);
+
+		if (!client.SendByChannel((short)MessageTypes.CHANGE_PLAYER_SHIP, message, 0)) {
 			Debug.Log ("Couldn't send player change ship message");
 		}
 	}

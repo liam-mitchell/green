@@ -12,10 +12,11 @@ public class EditorPart : MonoBehaviour {
 	public ShipPart part;
 
 	public void SnapTo(EditorPart other, Vector3 point) {
-		var otherCollider = other.gameObject.GetComponent<Collider>();
+		var otherCollider = other.gameObject.GetComponentInChildren<Collider>();
 
 		var projection = GetProjection(otherCollider, point);
 
+		Debug.Log (String.Format ("Snapping part to mouse: point {0}, projection {1}", point, projection));
 		gameObject.transform.position = point + projection;
 	}
 	
@@ -29,6 +30,7 @@ public class EditorPart : MonoBehaviour {
 	}
 
 	public void Activate() {
+		Debug.Log (String.Format ("Activating part {0}", this));
 		activePart = this;
 		MovePartToMouse();
 
@@ -44,6 +46,18 @@ public class EditorPart : MonoBehaviour {
 
 		if (ship != null) {
 			ship.AddPart (part);
+		}
+	}
+
+	private void ClearLayer(GameObject obj, int layer) {
+		foreach (var transform in obj.GetComponentsInChildren<Transform>()) {
+			transform.gameObject.layer &= ~layer;
+		}
+	}
+
+	private void SetLayer(GameObject obj, int layer) {
+		foreach (var transform in obj.GetComponentsInChildren<Transform>()) {
+			transform.gameObject.layer |= layer;
 		}
 	}
 
@@ -63,7 +77,7 @@ public class EditorPart : MonoBehaviour {
 
 		var sides = new Vector3[6] {rightSide, frontSide, topSide, leftSide, backSide, bottomSide};
 
-		gameObject.layer |= (int)Layers.IGNORE_RAYCAST;
+		SetLayer(gameObject.transform.root.gameObject, (int)Layers.IGNORE_RAYCAST);
 
 		foreach (var side in sides) {
 			var position = Camera.main.transform.position;
@@ -77,12 +91,12 @@ public class EditorPart : MonoBehaviour {
 			    || NumberUtil.FloatsEqual(point.y, side.y, SnapDistance)
 			    || NumberUtil.FloatsEqual(point.z, side.z, SnapDistance))
 			{
-				gameObject.layer &= ~(int)Layers.IGNORE_RAYCAST;
+				ClearLayer(gameObject.transform.root.gameObject, (int)Layers.IGNORE_RAYCAST);
 				return side - collider.bounds.center;
 			}
 		}
 		
-		gameObject.layer &= ~(int)Layers.IGNORE_RAYCAST;
+		ClearLayer(gameObject.transform.root.gameObject, (int)Layers.IGNORE_RAYCAST);
 		return Vector3.zero;
 	}
 
@@ -103,11 +117,11 @@ public class EditorPart : MonoBehaviour {
 		Array.Sort (hits, CompareHitDistance);
 		
 		foreach (var hit in hits) {
-			if (hit.collider.gameObject == gameObject) {
+			if (hit.collider.transform.root.gameObject == transform.root.gameObject) {
 				continue;
 			}
 			
-			var other = hit.collider.gameObject.GetComponent<EditorPart>();
+			var other = hit.collider.transform.root.gameObject.GetComponentInChildren<EditorPart>();
 			if (other != null) {
 				SnapTo(other, hit.point);
 				return;
@@ -116,6 +130,7 @@ public class EditorPart : MonoBehaviour {
 
 		var distance = Camera.main.transform.position.magnitude;
 		var direction = Camera.main.ScreenPointToRay(Input.mousePosition).direction;
+		Debug.Log (String.Format ("Moving part to mouse: distance {0}, direction {1}", distance, direction));
 		transform.position = Camera.main.transform.position + direction * distance;
 	}
 	

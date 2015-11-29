@@ -84,21 +84,19 @@ public class PlayerClient : MonoBehaviour {
 	}
 
 	public void OnShipSpawned(NetworkMessage msg) {
-		// Debug.Log ("Spawning ship");
 		var message = msg.ReadMessage<ShipSpawnedMessage>();
-		// Debug.Log (String.Format ("Finding ship with instance ID {0}", message.id));
+		var obj = ClientScene.FindLocalObject (new NetworkInstanceId(message.id));
+		var ship = obj.GetComponent<Ship>();
+		ship.Deserialize(message);
+		ship.Spawn();
 
-		var parent = ClientScene.FindLocalObject(new NetworkInstanceId(message.id));
-		var ship = message.ship.Attach (parent);
-		if (parent.GetComponent<NetworkIdentity>().isLocalPlayer) {
+		if (obj.GetComponent<NetworkIdentity>().isLocalPlayer) {
 			var cam = (GameObject)GameObject.Instantiate(cameraPrefab);
-			cam.transform.SetParent(parent.transform);
-			cam.GetComponent<PlayerCamera>().player = ship;
-			cam.GetComponentInChildren<ShipStatsDisplay>().ship = message.ship;
-			cam.GetComponentInChildren<ShipActiveStatsDisplay>().ship = message.ship;
+			cam.transform.SetParent(obj.transform);
+			cam.GetComponent<PlayerCamera>().player = obj;
+			cam.GetComponentInChildren<ShipStatsDisplay>().ship = ship;
+			cam.GetComponentInChildren<ShipActiveStatsDisplay>().ship = ship;
 		}
-
-		// Debug.Log ("Spawned ship");
 	}
 
 	private void Disconnect() {

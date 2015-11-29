@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using SimpleJSON;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -44,7 +45,7 @@ public class PlayerDataStorage {
 		return FindPlayerData(player.Username);
 	}
 
-	public Ship FindPlayerShip(Player player) {
+	public JSONArray FindPlayerShip(Player player) {
 		var data = FindPlayerData(player);
 		if (data != null) {
 			return data.ship;
@@ -54,7 +55,7 @@ public class PlayerDataStorage {
 		}
 	}
 
-	public bool ChangePlayerShip(Player player, Ship ship) {
+	public bool ChangePlayerShip(Player player, JSONArray ship) {
 		var data = FindPlayerData(player);
 		if (data != null) {
 			data.ship = ship;

@@ -8,7 +8,7 @@ public class EditorShip : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		ship = new Ship();
+//		ship = gameObject.GetComponent<Ship>();
 		stats.ship = ship;
 		Debug.Log (String.Format("Set editor ship to {0}", ship));
 	}

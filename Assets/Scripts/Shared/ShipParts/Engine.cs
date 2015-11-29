@@ -1,40 +1,38 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
+using SimpleJSON;
 using System.Collections;
 using System;
 
 public class Engine : ShipPart {	
-	public const string Name = "Engine";
+	public const string id = "Engine";
+	public override string ID() {return id;}
+
 	public float velocityPerKilogram;
 	public float accelerationPerKilogram;
 	
 	public Engine() {}
 	public Engine(Vector3 pos, Quaternion rot, double vpkg, double apkg) {
-		position = pos;
-		rotation = rot;
+		transform.position = pos;
+		transform.rotation = rot;
 		velocityPerKilogram = (float)vpkg;
 		accelerationPerKilogram = (float)apkg;
 	}
-	
-	public static ShipPart _Deserialize(NetworkReader reader) {
-		var pos = reader.ReadVector3();
-		var rot = reader.ReadQuaternion();
-		var vpkg = reader.ReadDouble ();
-		var apkg = reader.ReadDouble ();
-		Debug.Log (String.Format ("Deserializing engine at {0}, {1}, {2}, {3}", pos, rot, vpkg, apkg));
-		return new Engine(pos, rot, vpkg, apkg);
+
+	public override JSONClass ToJSON() {
+		var json = new JSONClass();
+		json["position"] = Helpers.ToJSON(transform.position);
+		json["rotation"] = Helpers.ToJSON(transform.rotation);
+		json["vpkg"].AsFloat = velocityPerKilogram;
+		json["apkg"].AsFloat = accelerationPerKilogram;
+		return json;
 	}
 	
-	public override void Serialize(NetworkWriter writer) {
-		Save();
-
-		writer.Write(Name);
-		writer.Write(position);
-		writer.Write(rotation);
-		writer.Write((double)velocityPerKilogram);
-		writer.Write((double)accelerationPerKilogram);
-
-		Debug.Log (String.Format ("Serializing engine at {0}, {1}", position, rotation));
+	public override void FromJSON(JSONClass json) {
+		transform.position = Helpers.Vector3FromJSON(json["position"].AsArray);
+		transform.rotation = Helpers.QuaternionFromJSON(json["rotation"].AsArray);
+		velocityPerKilogram = json["vpkg"].AsFloat;
+		accelerationPerKilogram = json["apkg"].AsFloat;
 	}
 
 	public override int Mass() {
@@ -42,17 +40,10 @@ public class Engine : ShipPart {
 	}
 
 	public override void Attach(Ship ship) {
-//		if (NetworkServer.active) {
-//			ship.engines.AddEngine(this);
-//		}
 		ship.engines.AddEngine(this);
 	}
 
 	public override void Detach(Ship ship) {
 		ship.engines.RemoveEngine(this);
 	}
-
-//	public Vector3 Force() {
-//		return force * Vector3.forward;
-//	}
 }

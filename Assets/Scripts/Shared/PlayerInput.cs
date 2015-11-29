@@ -28,7 +28,7 @@ public class PlayerInput : NetworkBehaviour {
 	[Command]
 	void CmdSend(InputState input) {
 		state = input;
-		Debug.Log (String.Format ("accelerate: {0}", state.accelerate));
+//		Debug.Log (String.Format ("accelerate: {0}", state.accelerate));
 	}
 
 	[ClientCallback]

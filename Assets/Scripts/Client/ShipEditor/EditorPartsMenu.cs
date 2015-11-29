@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 using System.Collections;
@@ -6,33 +7,34 @@ using System.Collections.Generic;
 using System;
 
 public class EditorPartsMenu : MonoBehaviour {
-	public List<GameObject> partsPrefabs;
+	public List<GameObject> parts;
 	public Image menu;
 	public int partsShown;
 
 	public int startOffset;
 	public int partSpacing;
 
-	public ShipPartSpawner spawner;
+//	public ShipPartSpawner spawner;
 	public EditorShip editorShip;
 
-	private List<ClickablePart> parts;
+//	private List<ClickablePart> parts;
+	private List<GameObject> clickable;
 	private PlayerDataClient dataClient;
 	private PlayerClient playerClient;
 
-	private class ClickablePart {
-		public GameObject obj;
-		public string name;
-		public ClickablePart(string n, GameObject o) {
-			name = n;
-			obj = o;
-			Debug.Log (String.Format ("Created clickable part with name {0}", name));
-		}
-	}
+//	private class ClickablePart {
+//		public GameObject obj;
+//		public string name;
+//		public ClickablePart(string n, GameObject o) {
+//			name = n;
+//			obj = o;
+//			Debug.Log (String.Format ("Created clickable part with name {0}", name));
+//		}
+//	}
 
 	// Use this for initialization
 	void Start () {
-		parts = new List<ClickablePart>();
+		clickable = new List<GameObject>();
 
 		var pc = GameObject.Find ("PlayerClient");
 		if (pc != null) {
@@ -89,49 +91,39 @@ public class EditorPartsMenu : MonoBehaviour {
 		var right = menu.rectTransform.TransformPoint (new Vector3(center.x * 2, 0));
 		var maxSize = (right - zero).magnitude;
 
-		for (int i = 0; i < partsShown && i < spawner.parts.Count; ++i, pos += step) {
-//			var part = new ShipPart(spawner.parts[i].name);
-			var part = spawner.Create(spawner.parts[i].name);
-			var obj = part.part;
-
-			Debug.Log (String.Format ("Adding clickable part {0}", obj));
+		for (int i = 0; i < partsShown && i < parts.Count; ++i, pos += step) {
+			var obj = (GameObject)GameObject.Instantiate(parts[i]);
+			Assert.IsNotNull(obj.GetComponent<ShipPart>());
 
 			obj.transform.SetParent(menu.rectTransform.parent);
 			obj.layer |= (int)Layers.IGNORE_RAYCAST;
 			
-			var size = obj.GetComponent<Renderer>().bounds.size.magnitude + partSpacing;
+			var size = obj.GetComponentInChildren<Renderer>().bounds.size.magnitude + partSpacing;
 			var scale = maxSize / size;
 
 			obj.transform.localScale *= scale;
 			obj.transform.position = pos;
 			obj.transform.rotation = Quaternion.identity;
 
-			parts.Add (new ClickablePart(spawner.parts[i].name, obj));
+			clickable.Add (obj);
 		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		foreach (var clickable in parts) {
-			if (Cursor.ClickDown(clickable.obj)) {
-				var part = spawner.Create (clickable.name);
-				var obj = part.part;
-//				Debug.Log (String.Format ("Clicked something: {0}", clickable.obj));
-//				Debug.Log (String.Format ("part: {0}", clickable.part.name));
-//
-//				var shipPart = new ShipPart(clickable.part.name);
-//				var newPart = shipPart.Spawn(ship);
-//
-				obj.transform.localScale = Vector3.one;
-				obj.transform.position = clickable.obj.transform.position;
-				obj.transform.rotation = Quaternion.identity;
-//
-				var editorPart = obj.AddComponent<EditorPart>();
+		foreach (var obj in clickable) {
+			if (Cursor.ClickDown(obj)) {
+//				Debug.Log ("Clicking object");
+				var newObj = GameObject.Instantiate(obj);
+				var part = newObj.GetComponent<ShipPart>();
+
+				newObj.transform.localScale = Vector3.one;
+				newObj.transform.rotation = Quaternion.identity;
+
+				var editorPart = newObj.AddComponent<EditorPart>();
 				editorPart.Activate();
 				editorPart.ship = editorShip.ship;
 				editorPart.part = part;
-//
-				Debug.Log (String.Format ("Created editor part: {0}, ship: {1}, part: {2}", editorPart, editorPart.ship, part));
 			}
 		}
 

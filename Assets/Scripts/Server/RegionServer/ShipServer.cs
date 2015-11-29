@@ -12,7 +12,8 @@ using System;
  */
 public class ShipServer : SceneServer {
 	public GameObject newPlayerPrefab;
-	public GameObject activePlayerPrefab;
+//	public GameObject activePlayerPrefab;
+	public GameObject shipPrefab;
 
 	private PlayerDataClient playerData;
 
@@ -112,12 +113,19 @@ public class ShipServer : SceneServer {
 
 	public void OnPlayerShip(NetworkMessage msg) {
 		var message = msg.ReadMessage<PlayerShipMessage>();
-		var ship = message.ship.Spawn(message.player.Username);
-		AddPlayerShip(message.player, ship);
+//		var ship = message.ship.Spawn(message.player.Username);
+		var obj = (GameObject)GameObject.Instantiate(shipPrefab);
+		var ship = obj.GetComponent<Ship>();
+
+		AddPlayerShip(message.player, obj);
+
+		ship.Deserialize(message);
+		ship.Spawn();
+
 		var connection = FindPlayerConnection(message.player);
 		var id = connection.ship.GetComponent<NetworkIdentity>().netId.Value;
 		Debug.Log (String.Format ("Player ship found for player {0}", message.player.Username));
-		connection.connection.SendByChannel((short)MessageTypes.PLAYER_SHIP_SPAWNED, new ShipSpawnedMessage(id, message.ship), 0);
+		connection.connection.SendByChannel((short)MessageTypes.PLAYER_SHIP_SPAWNED, new ShipSpawnedMessage(id, message.JSON), 0);
 	}
 
 	public void OnPlayerShipNotFound(NetworkMessage msg) {
