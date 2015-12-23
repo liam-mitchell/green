@@ -28,12 +28,13 @@ public class PlayerInput : NetworkBehaviour {
 	[Command]
 	void CmdSend(InputState input) {
 		state = input;
-//		Debug.Log (String.Format ("accelerate: {0}", state.accelerate));
+		Debug.Log (String.Format ("accelerate: {0}", state.accelerate));
 	}
 
 	[ClientCallback]
 	void FixedUpdate() {
 		CmdSend(state);
+		Debug.Log (String.Format ("accelerate: {0}", state.accelerate));
 	}
 
 	[ClientCallback]
@@ -41,7 +42,7 @@ public class PlayerInput : NetworkBehaviour {
 		// [ClientCallback] unfortunately runs on the region server, since it has an active
 		// NetworkClient connection to the data server. So, manually check if the server is
 		// active here (since this object must be alive on both server and client, in order
-		// to process input.
+		// to process input).
 		if (NetworkServer.active) {
 			return;
 		}

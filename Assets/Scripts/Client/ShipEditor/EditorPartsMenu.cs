@@ -14,23 +14,11 @@ public class EditorPartsMenu : MonoBehaviour {
 	public int startOffset;
 	public int partSpacing;
 
-//	public ShipPartSpawner spawner;
 	public EditorShip editorShip;
 
-//	private List<ClickablePart> parts;
 	private List<GameObject> clickable;
 	private PlayerDataClient dataClient;
 	private PlayerClient playerClient;
-
-//	private class ClickablePart {
-//		public GameObject obj;
-//		public string name;
-//		public ClickablePart(string n, GameObject o) {
-//			name = n;
-//			obj = o;
-//			Debug.Log (String.Format ("Created clickable part with name {0}", name));
-//		}
-//	}
 
 	// Use this for initialization
 	void Start () {
@@ -95,6 +83,8 @@ public class EditorPartsMenu : MonoBehaviour {
 			var obj = (GameObject)GameObject.Instantiate(parts[i]);
 			Assert.IsNotNull(obj.GetComponent<ShipPart>());
 
+			obj.GetComponent<ShipPart>().part = obj;
+
 			obj.transform.SetParent(menu.rectTransform.parent);
 			obj.layer |= (int)Layers.IGNORE_RAYCAST;
 			
@@ -108,22 +98,22 @@ public class EditorPartsMenu : MonoBehaviour {
 			clickable.Add (obj);
 		}
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		foreach (var obj in clickable) {
 			if (Cursor.ClickDown(obj)) {
-//				Debug.Log ("Clicking object");
-				var newObj = GameObject.Instantiate(obj);
-				var part = newObj.GetComponent<ShipPart>();
+				var part = obj.GetComponent<ShipPart>();
+				var newPart = part.Clone (editorShip.ship.gameObject);
+				newPart.Spawn(editorShip.ship);
 
-				newObj.transform.localScale = Vector3.one;
-				newObj.transform.rotation = Quaternion.identity;
+				newPart.part.transform.localScale = Vector3.one;
+				newPart.part.transform.rotation = Quaternion.identity;
 
-				var editorPart = newObj.AddComponent<EditorPart>();
-				editorPart.Activate();
+				var editorPart = newPart.part.AddComponent<EditorPart>();
 				editorPart.ship = editorShip.ship;
-				editorPart.part = part;
+				editorPart.part = newPart;
+				editorPart.Activate();
 			}
 		}
 

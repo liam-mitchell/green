@@ -46,7 +46,6 @@ public class InterpolatedTransform : NetworkBehaviour {
 				break;
 			}
 		}
-
 	}
 
 	[ServerCallback]
@@ -57,12 +56,15 @@ public class InterpolatedTransform : NetworkBehaviour {
 	public override bool OnSerialize(NetworkWriter writer, bool initial) {
 		writer.Write (transform.localPosition);
 		writer.Write (transform.localRotation);
+		Debug.Log(String.Format ("Wrote pos and rot: {0}, {1}", transform.localPosition, transform.localRotation));
 		return true;
 	}
 
 	public override void OnDeserialize(NetworkReader reader, bool initial) {
 		var position = reader.ReadVector3 ();
 		var rotation = reader.ReadQuaternion();
+
+		Debug.Log(String.Format ("Read pos and rot: {0}, {1}", position, rotation));
 
 		if (transforms == null) {
 			transforms = new List<SyncTransform>();

@@ -32,7 +32,7 @@ public class ShipEngines {
 	public void AddEngine(Engine engine) {
 		velocityPerKilogram += engine.velocityPerKilogram;
 		accelerationPerKilogram += engine.accelerationPerKilogram;
-		Debug.Log (String.Format ("Added engine: vpkg {0}, apkg {1}", engine.velocityPerKilogram, engine.accelerationPerKilogram));
+		Debug.Log (String.Format ("Added engine: vpkg {0}, apkg {1}, now @({2}, {3})", engine.velocityPerKilogram, engine.accelerationPerKilogram, velocityPerKilogram, accelerationPerKilogram));
 	}
 
 	public void RemoveEngine(Engine engine) {
@@ -41,6 +41,11 @@ public class ShipEngines {
 	}
 
 	private void Accelerate() {
+		if (ship.input == null || accelerationPerKilogram == 0 || velocityPerKilogram == 0) {
+			Debug.Log (String.Format ("Early exit from Accelerate(): {0}, {1}, {2}", ship.input, accelerationPerKilogram, velocityPerKilogram));
+			return;
+		}
+
 		var aship = accelerationPerKilogram / ship.Mass * ship.input.state.accelerate;
 		var fship = ship.Mass * aship;
 		

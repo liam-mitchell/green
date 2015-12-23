@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class PlayerCamera : FocusCamera {
 	[HideInInspector]
@@ -10,6 +11,7 @@ public class PlayerCamera : FocusCamera {
 			return Vector3.zero;
 		}
 
+		Debug.Log (String.Format("Returning {0} from player {1}", player.transform.position, player));
 		return player.transform.position;
 	}
 

@@ -5,6 +5,24 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
+/**
+ * Base Ship class.
+ * 
+ * Maintains a list of ship parts, as well as containers for each type of ship part
+ * (engines, weapons, etc). ShipParts receive a reference to their Ship when they
+ * are attached via ShipPart.Attach().
+ * 
+ * This ship can be serialized into a ShipMessage (or subclass). To deserialize, an
+ * empty Ship should be created (with @input set appropriately), then Ship.Deserialize()
+ * should be called on the received ShipMessage.
+ * 
+ * After deserialization, the parts are attached, but their GameObjects have not been
+ * spawned. Once the GameObjects are required, Ship.Spawn() must be called, which calls
+ * ShipPart.Spawn() for all attached parts.
+ * 
+ * Must be linked in inspector:
+ *   @input (PlayerInput)
+ */
 public class Ship : NetworkBehaviour {
 	public class ShipSpawningException : Exception {
 		public ShipSpawningException(string message) : base(message) {}
@@ -14,14 +32,15 @@ public class Ship : NetworkBehaviour {
 	public List<ShipPart> parts;
 	public Vector3 position;
 
-//	private GameObject ship;
-
 	private float mass;
 	public float Mass {get {return mass;}}
 
 	public ShipEngines engines;
 	public PlayerInput input;
 
+	// Adds @part to the ship.
+	// Calls part.Attach() with a reference to this ship, allowing the part
+	// to adjust any necessary stats and add itself to any necessary lists.
 	public bool AddPart(ShipPart part) {
 		parts.Add(part);
 		mass += part.Mass ();
@@ -30,17 +49,30 @@ public class Ship : NetworkBehaviour {
 		return true;
 	}
 
+	// Removes @part from the ship, if it is attached.
+	// Calls part.Detach() if found (see AddPart).
 	public void RemovePart(ShipPart part) {
 		Debug.Log (String.Format("Removing part {0}", part));
-		parts.Remove(part);
-		mass -= part.Mass ();
-		part.Detach(this);
+		if (parts.Remove(part)) {
+			mass -= part.Mass ();
+			part.Detach(this);
+		}
 	}
 
 	void Awake() {
 		parts = new List<ShipPart>();
 		position = Vector3.zero;
 		engines = new ShipEngines(this);
+	}
+
+	void Update() {
+		Debug.Log ("Updating ship engines...");
+		if (NetworkServer.active) {
+			engines.UpdateServer();
+		}
+		else {
+			engines.UpdateClient();
+		}
 	}
 
 	public void UpdateServer() {
@@ -53,12 +85,14 @@ public class Ship : NetworkBehaviour {
 		engines.UpdateClient();
 	}
 
+	// Serialize each part into the message
 	public void Serialize(ShipMessage message) {
 		foreach (var part in parts) {
 			part.Serialize(message);
 		}
 	}
 
+	// Deserialize parts one at a time, adding them one by one.
 	public void Deserialize(ShipMessage message) {
 		ShipPart part;
 		while ((part = ShipPart.Deserialize(gameObject, message)) != null) {
@@ -66,34 +100,14 @@ public class Ship : NetworkBehaviour {
 		}
 	}
 
+	// Spawn parts' associated GameObjects
 	public void Spawn() {
 		SpawnParts();
 	}
 
-//	private GameObject SpawnShip() {
-//		return Spawner().Spawn();
-//	}
-//
-//	private GameObject SpawnShip(string name) {
-//		return Spawner().Spawn(name);
-//	}
-
 	private void SpawnParts() {
-//		input = GetComponent<PlayerInput>();
-
 		foreach (var part in parts) {
 			part.Spawn(this);
 		}
-
-		engines = new ShipEngines(this);
-	}
-
-	private ShipSpawner Spawner() {
-		var spawner = GameObject.Find("ShipSpawner").GetComponent<ShipSpawner>();
-		if (spawner == null) {
-			throw new ShipSpawningException("Unable to find ShipSpawner!");
-		}
-
-		return spawner;
 	}
 }

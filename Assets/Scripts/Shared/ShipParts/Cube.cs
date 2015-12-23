@@ -10,14 +10,14 @@ public class Cube : ShipPart {
 
 	public override JSONClass ToJSON() {
 		var json = new JSONClass();
-		json["position"] = Helpers.ToJSON(transform.position);
-		json["rotation"] = Helpers.ToJSON(transform.rotation);
+		json["position"] = Helpers.ToJSON(position);
+		json["rotation"] = Helpers.ToJSON(rotation);
 		return json;
 	}
 
 	public override void FromJSON(JSONClass json) {
-		transform.position = Helpers.Vector3FromJSON(json["position"].AsArray);
-		transform.rotation = Helpers.QuaternionFromJSON(json["rotation"].AsArray);
+		position = Helpers.Vector3FromJSON(json["position"].AsArray);
+		rotation = Helpers.QuaternionFromJSON(json["rotation"].AsArray);
 	}
 
 	public override int Mass() {
@@ -26,4 +26,9 @@ public class Cube : ShipPart {
 
 	public override void Attach(Ship ship) {}
 	public override void Detach(Ship ship) {}
+
+	void Awake() {
+		clientPrefab = CubePrefab.clientPrefab;
+		serverPrefab = CubePrefab.serverPrefab;
+	}
 }

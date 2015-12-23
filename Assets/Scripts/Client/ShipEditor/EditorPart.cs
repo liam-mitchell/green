@@ -13,7 +13,6 @@ public class EditorPart : MonoBehaviour {
 
 	public void SnapTo(EditorPart other, Vector3 point) {
 		var otherCollider = other.gameObject.GetComponentInChildren<Collider>();
-
 		var projection = GetProjection(otherCollider, point);
 
 		Debug.Log (String.Format ("Snapping part to mouse: point {0}, projection {1}", point, projection));
@@ -77,26 +76,32 @@ public class EditorPart : MonoBehaviour {
 
 		var sides = new Vector3[6] {rightSide, frontSide, topSide, leftSide, backSide, bottomSide};
 
-		SetLayer(gameObject.transform.root.gameObject, (int)Layers.IGNORE_RAYCAST);
-
 		foreach (var side in sides) {
 			var position = Camera.main.transform.position;
 			var direction = side - position;
+			
+//			SetLayer(gameObject.transform.root.gameObject, (int)Layers.IGNORE_RAYCAST);
+			var hits = Physics.RaycastAll (position, direction);
+			Array.Sort (hits, CompareHitDistance);
+//			ClearLayer(gameObject.transform.root.gameObject, (int)Layers.IGNORE_RAYCAST);
 
-			if (Physics.Raycast (position, direction, (direction.magnitude - SnapDistance))) {
-				continue;
-			}
+//			if (hits) {
+//				continue;
+//			}
+			foreach (var hit in hits) {
+				if (hit.collider.gameObject == gameObject) {
+					continue;
+				}
 
-			if (NumberUtil.FloatsEqual(point.x, side.x, SnapDistance)
-			    || NumberUtil.FloatsEqual(point.y, side.y, SnapDistance)
-			    || NumberUtil.FloatsEqual(point.z, side.z, SnapDistance))
-			{
-				ClearLayer(gameObject.transform.root.gameObject, (int)Layers.IGNORE_RAYCAST);
-				return side - collider.bounds.center;
+				if (NumberUtil.FloatsEqual(point.x, side.x, SnapDistance)
+				        || NumberUtil.FloatsEqual(point.y, side.y, SnapDistance)
+				        || NumberUtil.FloatsEqual(point.z, side.z, SnapDistance))
+				{
+					return side - collider.bounds.center;
+				}
 			}
 		}
-		
-		ClearLayer(gameObject.transform.root.gameObject, (int)Layers.IGNORE_RAYCAST);
+
 		return Vector3.zero;
 	}
 
@@ -117,11 +122,11 @@ public class EditorPart : MonoBehaviour {
 		Array.Sort (hits, CompareHitDistance);
 		
 		foreach (var hit in hits) {
-			if (hit.collider.transform.root.gameObject == transform.root.gameObject) {
+			if (hit.collider.gameObject == gameObject) {
 				continue;
 			}
 			
-			var other = hit.collider.transform.root.gameObject.GetComponentInChildren<EditorPart>();
+			var other = hit.collider.gameObject.GetComponentInChildren<EditorPart>();
 			if (other != null) {
 				SnapTo(other, hit.point);
 				return;
@@ -130,7 +135,8 @@ public class EditorPart : MonoBehaviour {
 
 		var distance = Camera.main.transform.position.magnitude;
 		var direction = Camera.main.ScreenPointToRay(Input.mousePosition).direction;
-		Debug.Log (String.Format ("Moving part to mouse: distance {0}, direction {1}", distance, direction));
+		Debug.Log (String.Format ("Moving part {2}.{4} ({3}) to mouse: distance {0}, direction {1}", distance, direction, part, gameObject, part.part));
+		Debug.Log (String.Format ("New position: {0}, Camera.main.transform.position: {1}", Camera.main.transform.position + direction * distance, Camera.main.transform.position));
 		transform.position = Camera.main.transform.position + direction * distance;
 	}
 	
